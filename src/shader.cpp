@@ -1,0 +1,54 @@
+#include "shader.hpp"
+
+namespace tigame
+{
+	Shader::Shader(const char * vertex_source, const char * fragment_source)
+	{
+		GLuint vertex_shader;
+		GLuint fragment_shader;
+		int success;
+
+		vertex_shader = glCreateShader(GL_VERTEX_SHADER);
+		glShaderSource(vertex_shader, 1, &vertex_source, nullptr);
+		glCompileShader(vertex_shader);
+		glGetShaderiv(vertex_shader, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			char infoLog[512];
+			glGetShaderInfoLog(vertex_shader, 512, NULL, infoLog);
+			std::cout << "vertex shader failed\n" << infoLog << std::endl;
+			return;
+		}
+
+		fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
+		glShaderSource(fragment_shader, 1, &fragment_source, nullptr);
+		glCompileShader(fragment_shader);
+		glGetShaderiv(fragment_shader, GL_COMPILE_STATUS, &success);
+		if (!success)
+		{
+			char infoLog[512];
+			glGetShaderInfoLog(fragment_shader, 512, NULL, infoLog);
+			std::cout << "fragment shader failed\n" << infoLog << std::endl;
+			return;
+		}
+
+		program_ = glCreateProgram();
+		glAttachShader(program_, vertex_shader);
+		glAttachShader(program_, fragment_shader);
+		glLinkProgram(program_);
+
+		glDeleteShader(vertex_shader);
+		glDeleteShader(fragment_shader);
+	}
+
+	Shader::~Shader()
+	{
+		// TODO: only delete if create didn't fail
+		glDeleteProgram(program_);
+	}
+
+	void Shader::Activate()
+	{
+		glUseProgram(program_);
+	}
+}

@@ -1,63 +1,38 @@
-#include <iostream>
+#include "game.hpp"
 
-#include <SDL.h>
-#include <SDL2_framerate.h>
-
-#include <glad/glad.h>
+#include "mesh_factory.hpp"
 
 int main(int argc, char * argv[])
 {
-	SDL_Init(SDL_INIT_VIDEO);
+	tigame::Game game = tigame::Game();
 
-	int width = 800;
-	int height = 600;
-	SDL_Window * window = SDL_CreateWindow("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+	tigame::Shader basic = tigame::Shader(
+		"#version 330 core\n"
+		"layout (location = 0) in vec3 aPos;\n"
+		"void main()\n"
+		"{\n"
+		"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+		"}",
 
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+		"#version 330 core\n"
+		"out vec4 FragColor;\n"
+		"void main()\n"
+		"{\n"
+		"	FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+		"}\n"
+	);
 
-	SDL_GLContext context = SDL_GL_CreateContext(window);
+	tigame::Scene scene = tigame::Scene();
+	game.SetScene(&scene);
 
-	if (!gladLoadGLLoader(SDL_GL_GetProcAddress))
-	{
-		std::cerr << "Failed to start OpenGL." << std::endl;
-		return 1;
-	}
+	tigame::Object thing = tigame::Object();
+	tigame::Mesh * box = tigame::MeshFactory::Box(&basic, 1, 2, 3);
+	thing.mesh = box;
+	scene.AddObject(&thing);
 
-	std::cout << glGetString(GL_VERSION) << std::endl;
+	game.Run();
 
-	FPSmanager frame_manager;
-	SDL_initFramerate(&frame_manager);
-	SDL_setFramerate(&frame_manager, 60);
-
-	bool quit = false;
-	SDL_Event e;
-
-	glClearColor(0.5, 1.0, 0.5, 1.0);
-	while (!quit)
-	{
-		while (SDL_PollEvent(&e) != 0)
-		{
-			if (e.type == SDL_QUIT)
-			{
-				quit = true;
-				break;
-			}
-		}
-
-		if (quit)
-		{
-			break;
-		}
-
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		SDL_GL_SwapWindow(window);
-		SDL_framerateDelay(&frame_manager);
-	}
-
-	SDL_DestroyWindow(window);
+	delete box;
 
 	return 0;
 }
