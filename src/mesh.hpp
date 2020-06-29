@@ -23,7 +23,7 @@ namespace tigame
 		Mesh(Shader * shader, VertexLayout layout, float * vertices, size_t vertices_size, size_t vertices_count);
 		~Mesh();
 
-		void Draw(glm::mat4 * projection, glm::mat4 * view, glm::mat4 * model);
+		void Draw(glm::mat4 * projection, glm::mat4 * view, glm::mat4 * model, glm::mat3 * normal);
 
 	private:
 		Shader * shader_;

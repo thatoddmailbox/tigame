@@ -17,6 +17,8 @@ namespace tigame
 		Shader(const char * vertex_source, const char * fragment_source);
 		~Shader();
 
+		void SetUniformVector3(const std::string& name, glm::vec3 * value);
+		void SetUniformMatrix3x3(const std::string& name, glm::mat3 * value);
 		void SetUniformMatrix4x4(const std::string& name, glm::mat4 * value);
 
 		void Activate();
@@ -28,7 +30,8 @@ namespace tigame
 	enum ShaderLocation
 	{
 		POSITION = 0,
-		TEXTURE_UV = 1
+		NORMAL = 1,
+		TEXTURE_UV = 2
 	};
 }
 

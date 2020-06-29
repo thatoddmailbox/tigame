@@ -16,12 +16,15 @@ namespace tigame
 			model_ = glm::rotate(model_, glm::radians(rotation_.y), glm::vec3(0.0f, 1.0f, 0.0f));
 			model_ = glm::rotate(model_, glm::radians(rotation_.z), glm::vec3(0.0f, 0.0f, 1.0f));
 			model_ = glm::translate(model_, position_);
+
+			normal_ = glm::mat3(glm::transpose(glm::inverse(model_)));
+
 			location_dirty_ = false;
 		}
 
 		if (mesh != nullptr)
 		{
-			mesh->Draw(projection, view, &model_);
+			mesh->Draw(projection, view, &model_, &normal_);
 		}
 	}
 

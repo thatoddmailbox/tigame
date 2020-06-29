@@ -43,7 +43,9 @@ namespace tigame
 		bool quit = false;
 		SDL_Event e;
 
+		glEnable(GL_DEPTH_TEST);
 		glClearColor(0.5, 1.0, 0.5, 1.0);
+
 		while (!quit)
 		{
 			/*
@@ -74,7 +76,7 @@ namespace tigame
 			/*
 			 * draw
 			 */
-			glClear(GL_COLOR_BUFFER_BIT);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 			if (current_scene_ != nullptr)
 			{

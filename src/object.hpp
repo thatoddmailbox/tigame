@@ -21,7 +21,7 @@ namespace tigame
 		void SetPosition(float x, float y, float z);
 		void SetRotation(float x, float y, float z);
 
-		Mesh * mesh;
+		Mesh * mesh = nullptr;
 
 	protected:
 		glm::vec3 position_ = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -29,6 +29,7 @@ namespace tigame
 		bool location_dirty_ = true;
 
 		glm::mat4 model_;
+		glm::mat3 normal_;
 	};
 }
 
