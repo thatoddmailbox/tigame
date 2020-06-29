@@ -3,6 +3,7 @@
 
 #include <vector>
 
+#include "camera.hpp"
 #include "object.hpp"
 
 namespace tigame
@@ -11,11 +12,14 @@ namespace tigame
 	{
 	public:
 		void AddObject(Object * object);
+		void SetMainCamera(Camera * camera);
+
 		void Update();
 		void Draw();
 
 	private:
 		std::vector<Object *> objects_;
+		Camera * main_camera_;
 	};
 }
 

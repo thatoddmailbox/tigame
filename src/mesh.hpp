@@ -6,6 +6,8 @@
 
 #include <glad/glad.h>
 
+#include <glm/glm.hpp>
+
 #include "shader.hpp"
 
 namespace tigame
@@ -21,7 +23,7 @@ namespace tigame
 		Mesh(Shader * shader, VertexLayout layout, float * vertices, size_t vertices_size, size_t vertices_count);
 		~Mesh();
 
-		void Draw();
+		void Draw(glm::mat4 * projection, glm::mat4 * view, glm::mat4 * model);
 
 	private:
 		Shader * shader_;

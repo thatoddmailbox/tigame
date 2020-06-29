@@ -51,4 +51,10 @@ namespace tigame
 	{
 		glUseProgram(program_);
 	}
+
+	void Shader::SetUniformMatrix4x4(const std::string& name, glm::mat4 * value)
+	{
+		GLuint uniform_id = glGetUniformLocation(program_, name.c_str());
+		glUniformMatrix4fv(uniform_id, 1, GL_FALSE, glm::value_ptr(*value));
+	}
 }
