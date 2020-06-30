@@ -17,7 +17,9 @@ namespace tigame
 		Shader(const char * vertex_source, const char * fragment_source);
 		~Shader();
 
+		void SetUniformFloat(const std::string& name, float value);
 		void SetUniformVector3(const std::string& name, glm::vec3 * value);
+		void SetUniformVector4(const std::string& name, glm::vec4 * value);
 		void SetUniformMatrix3x3(const std::string& name, glm::mat3 * value);
 		void SetUniformMatrix4x4(const std::string& name, glm::mat4 * value);
 

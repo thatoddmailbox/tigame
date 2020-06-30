@@ -14,7 +14,7 @@ namespace tigame
 	{
 	public:
 		virtual void Update();
-		void Draw(glm::mat4 * projection, glm::mat4 * view);
+		void Draw(glm::mat4 * projection, glm::mat4 * view, glm::vec3 * camera_position, Light * light);
 
 		glm::vec3& GetPosition();
 		glm::vec3& GetRotation();

@@ -17,13 +17,34 @@ namespace tigame
 		XYZUV
 	};
 
+	struct Material
+	{
+		glm::vec4 Ambient;
+		glm::vec4 Diffuse;
+		glm::vec4 Specular;
+
+		float Shininess;
+	};
+
+	struct Light
+	{
+		glm::vec3 Position;
+		glm::vec4 Color;
+
+		glm::vec4 Ambient;
+		glm::vec4 Diffuse;
+		glm::vec4 Specular;
+	};
+
 	class Mesh
 	{
 	public:
 		Mesh(Shader * shader, VertexLayout layout, float * vertices, size_t vertices_size, size_t vertices_count);
 		~Mesh();
 
-		void Draw(glm::mat4 * projection, glm::mat4 * view, glm::mat4 * model, glm::mat3 * normal);
+		void Draw(glm::mat4 * projection, glm::mat4 * view, glm::mat4 * model, glm::mat3 * normal, glm::vec3 * camera_position, Light * light);
+
+		Material material;
 
 	private:
 		Shader * shader_;

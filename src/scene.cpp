@@ -2,6 +2,15 @@
 
 namespace tigame
 {
+	Scene::Scene()
+	{
+		light.Position = glm::vec3(5, 5, 5);
+		light.Color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+		light.Ambient = glm::vec4(0.2f, 0.2f, 0.2f, 1.0f);
+		light.Diffuse = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+		light.Specular = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	}
+
 	void Scene::AddObject(Object * object)
 	{
 		objects_.push_back(object);	
@@ -27,7 +36,7 @@ namespace tigame
 	{
 		for (Object * object : objects_)
 		{
-			object->Draw(main_camera_->GetProjection(), main_camera_->GetView());
+			object->Draw(main_camera_->GetProjection(), main_camera_->GetView(), &main_camera_->GetPosition(), &light);
 		}
 	}
 }

@@ -52,10 +52,22 @@ namespace tigame
 		glUseProgram(program_);
 	}
 
+	void Shader::SetUniformFloat(const std::string& name, float value)
+	{
+		GLuint uniform_id = glGetUniformLocation(program_, name.c_str());
+		glUniform1fv(uniform_id, 1, &value);
+	}
+
 	void Shader::SetUniformVector3(const std::string& name, glm::vec3 * value)
 	{
 		GLuint uniform_id = glGetUniformLocation(program_, name.c_str());
 		glUniform3fv(uniform_id, 1, glm::value_ptr(*value));
+	}
+
+	void Shader::SetUniformVector4(const std::string& name, glm::vec4 * value)
+	{
+		GLuint uniform_id = glGetUniformLocation(program_, name.c_str());
+		glUniform4fv(uniform_id, 1, glm::value_ptr(*value));
 	}
 
 	void Shader::SetUniformMatrix3x3(const std::string& name, glm::mat3 * value)

@@ -11,11 +11,15 @@ namespace tigame
 	class Scene
 	{
 	public:
+		Scene();
+
 		void AddObject(Object * object);
 		void SetMainCamera(Camera * camera);
 
 		void Update();
 		void Draw();
+
+		Light light;
 
 	private:
 		std::vector<Object *> objects_;

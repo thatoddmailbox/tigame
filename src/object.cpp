@@ -7,7 +7,7 @@ namespace tigame
 		
 	}
 
-	void Object::Draw(glm::mat4 * projection, glm::mat4 * view)
+	void Object::Draw(glm::mat4 * projection, glm::mat4 * view, glm::vec3 * camera_position, Light * light)
 	{
 		if (location_dirty_)
 		{
@@ -24,7 +24,7 @@ namespace tigame
 
 		if (mesh != nullptr)
 		{
-			mesh->Draw(projection, view, &model_, &normal_);
+			mesh->Draw(projection, view, &model_, &normal_, camera_position, light);
 		}
 	}
 
