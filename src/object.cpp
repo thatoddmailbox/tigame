@@ -12,10 +12,10 @@ namespace tigame
 		if (location_dirty_)
 		{
 			model_ = glm::mat4(1.0f);
+			model_ = glm::translate(model_, position_);
 			model_ = glm::rotate(model_, glm::radians(rotation_.x), glm::vec3(1.0f, 0.0f, 0.0f));
 			model_ = glm::rotate(model_, glm::radians(rotation_.y), glm::vec3(0.0f, 1.0f, 0.0f));
 			model_ = glm::rotate(model_, glm::radians(rotation_.z), glm::vec3(0.0f, 0.0f, 1.0f));
-			model_ = glm::translate(model_, position_);
 
 			normal_ = glm::mat3(glm::transpose(glm::inverse(model_)));
 
