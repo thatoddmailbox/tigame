@@ -44,7 +44,7 @@ namespace tigame
 		SDL_Event e;
 
 		glEnable(GL_DEPTH_TEST);
-		glClearColor(0.5, 1.0, 0.5, 1.0);
+		glClearColor(0.404, 0.577, 0.926, 1.0);
 
 		while (!quit)
 		{
