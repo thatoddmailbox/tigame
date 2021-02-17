@@ -1,4 +1,6 @@
 # tigame
+![Demo GIF](./demo.gif)
+
 A tiny 3D game engine, still a work in progress. Uses C++, the SDL2 library, PhysicsFS, and OpenGL.
 
 ## Build instructions
