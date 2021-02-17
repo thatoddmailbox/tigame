@@ -367,6 +367,17 @@ namespace tigame
 		float z;
 	} float3;
 
+	typedef struct {
+		float x;
+		float y;
+		float z;
+		float nx;
+		float ny;
+		float nz;
+		float u;
+		float v;
+	} vertex;
+
 	Mesh * MeshFactory::OBJ(Shader * shader, const char * path)
 	{
 		PHYSFS_File * file = PHYSFS_openRead(path);
@@ -380,6 +391,8 @@ namespace tigame
 		std::vector<float3> vertex_coords;
 		std::vector<float3> vertex_normals;
 		std::vector<float3> vertex_textures;
+
+		std::vector<vertex> vertices;
 
 		char * file_position = file_data;
 		while (true)
@@ -413,7 +426,7 @@ namespace tigame
 				continue;
 			}
 
-			// std::cout << "LINE: " << line << std::endl;
+			std::cout << "LINE: " << line << std::endl;
 
 			// decide what to do based on the first token
 			std::string& first_token = tokens[0];
@@ -453,7 +466,70 @@ namespace tigame
 			else if (first_token == "f")
 			{
 				// a face!
-				continue;
+				size_t face_vert_count = tokens.size() - 1;
+				if (face_vert_count != 3 && face_vert_count != 4)
+				{
+					std::cout << "Currently, only faces with three or four vertices are supported." << std::endl;
+					break;
+				}
+				vertex face_verts[4];
+				for (size_t token_index = 0; token_index < face_vert_count; token_index++)
+				{
+					std::string& vertex_numbers = tokens[1 + token_index];
+					std::istringstream vertex_numbers_stream(vertex_numbers);
+					std::string vertex_number_string;
+					size_t i = 0;
+					while (std::getline(vertex_numbers_stream, vertex_number_string, '/'))
+					{
+						int vertex_number = std::stoi(vertex_number_string);
+						if (i == 0)
+						{
+							// this is a vertex coord
+							float3& matching = vertex_coords[vertex_number];
+							face_verts[token_index].x = matching.x;
+							face_verts[token_index].y = matching.y;
+							face_verts[token_index].z = matching.z;
+						}
+						else if (i == 1)
+						{
+							// this is a vertex texture
+							float3& matching = vertex_textures[vertex_number];
+							face_verts[token_index].u = matching.x;
+							face_verts[token_index].v = matching.y;
+						}
+						else if (i == 2)
+						{
+							// this is a vertex normal
+							float3& matching = vertex_normals[vertex_number];
+							face_verts[token_index].x = matching.x;
+							face_verts[token_index].y = matching.y;
+							face_verts[token_index].z = matching.z;
+						}
+						i++;
+					}
+				}
+
+				if (face_vert_count == 3)
+				{
+					// triangle
+					vertices.push_back(face_verts[0]);
+					vertices.push_back(face_verts[1]);
+					vertices.push_back(face_verts[2]);
+				}
+				else if (face_vert_count == 4)
+				{
+					// quadrilateral (two triangles)
+
+					// first triangle
+					vertices.push_back(face_verts[0]);
+					vertices.push_back(face_verts[1]);
+					vertices.push_back(face_verts[2]);
+
+					// second triangle
+					vertices.push_back(face_verts[3]);
+					vertices.push_back(face_verts[1]);
+					vertices.push_back(face_verts[2]);
+				}
 			}
 			else if (first_token == "g")
 			{
@@ -480,7 +556,24 @@ namespace tigame
 		free(file_data);
 		PHYSFS_close(file);
 
-		// Mesh * object = new Mesh(shader, VertexLayout::XYZUV, vertices, );
-		return nullptr;
+		// convert vertices vector into float array
+		size_t vertices_stride = 8;
+		size_t vertices_size = vertices.size() * vertices_stride;
+		float * vertices_data = (float *) malloc(vertices_size * sizeof(float));
+
+		for (size_t i = 0; i < vertices.size(); i++)
+		{
+			vertices_data[(i * vertices_stride) + 0] = vertices[i].x;
+			vertices_data[(i * vertices_stride) + 1] = vertices[i].y;
+			vertices_data[(i * vertices_stride) + 2] = vertices[i].z;
+			vertices_data[(i * vertices_stride) + 3] = vertices[i].nx;
+			vertices_data[(i * vertices_stride) + 4] = vertices[i].ny;
+			vertices_data[(i * vertices_stride) + 5] = vertices[i].nz;
+			vertices_data[(i * vertices_stride) + 6] = vertices[i].u;
+			vertices_data[(i * vertices_stride) + 7] = vertices[i].v;
+		}
+
+		Mesh * object = new Mesh(shader, VertexLayout::XYZUV, vertices_data, vertices_size * sizeof(float), vertices.size());
+		return object;
 	}
 }
