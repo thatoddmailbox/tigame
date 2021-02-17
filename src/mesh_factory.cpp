@@ -355,4 +355,132 @@ namespace tigame
 		Mesh * box = new Mesh(shader, VertexLayout::XYZUV, vertices, vertices_size * sizeof(float), vertices_count);
 		return box;
 	}
+
+	static bool is_unwanted_whitespace(unsigned char c)
+	{
+		return (c == '\n' || c == '\r' || c == '\t' || c == '\v' || c == '\f');
+	}
+
+	typedef struct {
+		float x;
+		float y;
+		float z;
+	} float3;
+
+	Mesh * MeshFactory::OBJ(Shader * shader, const char * path)
+	{
+		PHYSFS_File * file = PHYSFS_openRead(path);
+
+		// we read the file in to a buffer
+		// TODO: can we make this better by reading chunk-by-chunk from the file?
+		PHYSFS_sint64 file_size = PHYSFS_fileLength(file);
+		char * file_data = (char *) malloc(file_size * sizeof(char));
+		PHYSFS_readBytes(file, file_data, file_size);
+
+		std::vector<float3> vertex_coords;
+		std::vector<float3> vertex_normals;
+		std::vector<float3> vertex_textures;
+
+		char * file_position = file_data;
+		while (true)
+		{
+			char * line_end = strchr(file_position, '\n');
+			if (!line_end)
+			{
+				// end of file
+				break;
+			}
+			size_t line_length = line_end - file_position;
+
+			// we now have a line, starting at file_position and continuing for line_length bytes
+			std::string line = std::string(file_position, line_length);
+			file_position += line_length + 1;
+
+			line.erase(std::remove_if(line.begin(), line.end(), is_unwanted_whitespace), line.end());
+
+			// tokenize it
+			std::vector<std::string> tokens;
+			std::istringstream line_stream(line);
+			std::string token;
+			while (std::getline(line_stream, token, ' '))
+			{
+				tokens.push_back(token);
+			}
+
+			if (tokens.size() == 0)
+			{
+				// blank line
+				continue;
+			}
+
+			// std::cout << "LINE: " << line << std::endl;
+
+			// decide what to do based on the first token
+			std::string& first_token = tokens[0];
+			if (first_token == "v" || first_token == "vn" || first_token == "vt")
+			{
+				// info about a vertex!
+				float3 vertex_info_data;
+				size_t expected_number = (first_token == "vt" ? 2 : 3);
+
+				if (tokens.size() < expected_number + 1)
+				{
+					// invalid
+					std::cout << "Could not parse line: " << line << std::endl;
+					break;
+				}
+
+				vertex_info_data.x = std::stof(tokens[1]);
+				vertex_info_data.y = std::stof(tokens[2]);
+				if (expected_number == 3)
+				{
+					vertex_info_data.z = std::stof(tokens[3]);
+				}
+
+				if (first_token == "v")
+				{
+					vertex_coords.push_back(vertex_info_data);
+				}
+				else if (first_token == "vn")
+				{
+					vertex_normals.push_back(vertex_info_data);
+				}
+				else if (first_token == "vt")
+				{
+					vertex_textures.push_back(vertex_info_data);
+				}
+			}
+			else if (first_token == "f")
+			{
+				// a face!
+				continue;
+			}
+			else if (first_token == "g")
+			{
+				// no group support
+				continue;
+			}
+			else if (first_token == "mtllib" || first_token == "usemtl")
+			{
+				// no material support
+				continue;
+			}
+			else if (first_token == "")
+			{
+				// blank line
+				continue;
+			}
+			else
+			{
+				std::cout << "Could not parse line: " << line << std::endl;
+				break;
+			}
+		}
+
+		free(file_data);
+		PHYSFS_close(file);
+
+		// Mesh * object = new Mesh(shader, VertexLayout::XYZUV, vertices, );
+		return nullptr;
+	}
 }

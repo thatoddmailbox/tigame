@@ -3,7 +3,14 @@
 
 #include <cstddef>
 
+#include <algorithm>
+#include <string>
+#include <sstream>
+#include <vector>
+
 #include <glad/glad.h>
+
+#include <physfs.h>
 
 #include "mesh.hpp"
 
@@ -18,6 +25,7 @@ namespace tigame
 	{
 	public:
 		static Mesh * Box(Shader * shader, float width, float length, float depth);
+		static Mesh * OBJ(Shader * shader, const char * path);
 
 	private:
 		MeshFactory() {}
