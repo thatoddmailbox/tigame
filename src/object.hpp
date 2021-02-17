@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_access.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "mesh.hpp"
@@ -20,6 +21,8 @@ namespace tigame
 		glm::vec3& GetRotation();
 		void SetPosition(float x, float y, float z);
 		void SetRotation(float x, float y, float z);
+
+		void LookAt(glm::vec3 target, glm::vec3 up);
 
 		Mesh * mesh = nullptr;
 
