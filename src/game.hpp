@@ -8,6 +8,8 @@
 
 #include <glad/glad.h>
 
+#include "physfs.h"
+
 #include "scene.hpp"
 
 namespace tigame

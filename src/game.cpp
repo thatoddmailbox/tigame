@@ -24,12 +24,16 @@ namespace tigame
 
 		std::cout << glGetString(GL_VERSION) << std::endl;
 
+		PHYSFS_init(argv0);
+		PHYSFS_setSaneConfig(organization_.c_str(), app_name_.c_str(), "zip", false, true);
+
 		SDL_initFramerate(&frame_manager_);
 		SDL_setFramerate(&frame_manager_, 60);
 	}
 
 	Game::~Game()
 	{
+		PHYSFS_deinit();
 		SDL_DestroyWindow(window_);
 	}
 
