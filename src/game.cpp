@@ -65,6 +65,15 @@ namespace tigame
 					quit = true;
 					break;
 				}
+
+				if (e.type == SDL_KEYDOWN)
+				{
+					if (e.key.keysym.sym == SDLK_ESCAPE)
+					{
+						quit = true;
+						break;
+					}
+				}
 			}
 
 			if (quit)
