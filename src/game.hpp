@@ -15,7 +15,7 @@ namespace tigame
 	class Game
 	{
 	public:
-		Game(std::string organization, std::string app_name);
+		Game(const char * argv0, std::string organization, std::string app_name);
 		~Game();
 
 		void SetScene(Scene * new_scene);

@@ -2,7 +2,7 @@
 
 namespace tigame
 {
-	Game::Game(std::string organization, std::string app_name) : organization_(organization), app_name_(app_name)
+	Game::Game(const char * argv0, std::string organization, std::string app_name) : organization_(organization), app_name_(app_name)
 	{
 		SDL_Init(SDL_INIT_VIDEO);
 
