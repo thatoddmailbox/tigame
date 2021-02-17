@@ -4,7 +4,7 @@
 
 int main(int argc, char * argv[])
 {
-	tigame::Game game = tigame::Game();
+	tigame::Game game = tigame::Game("tigame", "Demo");
 
 	tigame::Shader basic = tigame::Shader(
 		"#version 330 core\n"

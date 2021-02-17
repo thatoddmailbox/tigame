@@ -15,7 +15,7 @@ namespace tigame
 	class Game
 	{
 	public:
-		Game();
+		Game(std::string organization, std::string app_name);
 		~Game();
 
 		void SetScene(Scene * new_scene);
@@ -26,6 +26,9 @@ namespace tigame
 		FPSmanager frame_manager_;
 		SDL_Window * window_;
 		Scene * current_scene_ = nullptr;
+
+		std::string organization_;
+		std::string app_name_;
 	};
 }
 
