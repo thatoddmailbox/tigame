@@ -71,19 +71,27 @@ int main(int argc, char * argv[])
 	game.SetScene(&scene);
 
 	tigame::Camera camera = tigame::Camera(800, 600);
-	camera.SetPosition(2, 1, 4);
-	camera.SetRotation(-12.5, 25, 0);
+	camera.SetPosition(2, 2, 7);
+	// camera.SetRotation(-4, 20, 0);
+	camera.LookAt(glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 	scene.AddObject(&camera);
 	scene.SetMainCamera(&camera);
 
 	tigame::Object thing = tigame::Object();
+	thing.SetPosition(0, 2, 0);
 	tigame::Mesh * box = tigame::MeshFactory::Box(&basic, 1, 1.25, 3);
 	thing.mesh = box;
 	scene.AddObject(&thing);
 
+	tigame::Object floor = tigame::Object();
+	tigame::Mesh * floor_box = tigame::MeshFactory::Box(&basic, 5, 0.25, 5);
+	floor.mesh = floor_box;
+	scene.AddObject(&floor);
+
 	game.Run();
 
 	delete box;
+	delete floor_box;
 
 	return 0;
 }
