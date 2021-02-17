@@ -501,9 +501,9 @@ namespace tigame
 						{
 							// this is a vertex normal
 							float3& matching = vertex_normals[vertex_number];
-							face_verts[token_index].x = matching.x;
-							face_verts[token_index].y = matching.y;
-							face_verts[token_index].z = matching.z;
+							face_verts[token_index].nx = matching.x;
+							face_verts[token_index].ny = matching.y;
+							face_verts[token_index].nz = matching.z;
 						}
 						i++;
 					}
