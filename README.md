@@ -1,12 +1,13 @@
 # tigame
-A tiny 3D game engine, still a work in progress. Uses C++, the SDL2 library, and OpenGL.
+A tiny 3D game engine, still a work in progress. Uses C++, the SDL2 library, PhysicsFS, and OpenGL.
 
 ## Build instructions
-(these are not finished yet...)
+If you have SDL2 or PhysicsFS installed in a non-standard location, set the `SDL2DIR` and `PHYSFSDIR` environment variables before running `cmake`.
 
 * Install CMake
 * Get Bullet physics engine (tested with [version 2.89](https://github.com/bulletphysics/bullet3/tree/2.89)), follow build instructions for your operating system.
 * Install SDL2 and development headers
+* Install [PhysicsFS](https://www.icculus.org/physfs/)
 * `mkdir build && cd build`
 * `cmake ..`
 * `make`
