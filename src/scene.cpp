@@ -35,9 +35,10 @@ namespace tigame
 		glm::vec3& rotation = objects_[1]->GetRotation();
 		objects_[1]->SetRotation(rotation.x + 1, rotation.y, rotation.z);
 
-		main_camera_->SetPosition(4 * cos(time), 4, 10 * sin(time));
-		main_camera_->LookAt(glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
-		main_camera_->Update();
+		// main_camera_->SetPosition(4 * cos(time), 4, 10 * sin(time));
+		// main_camera_->SetRotation(-18, 21 + time, 0);
+		// main_camera_->LookAt(glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+		// main_camera_->Update();
 
 		// TODO: use delta time
 		time += 0.01f;
