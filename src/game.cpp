@@ -27,6 +27,9 @@ namespace tigame
 		PHYSFS_init(argv0);
 		PHYSFS_setSaneConfig(organization_.c_str(), app_name_.c_str(), "zip", false, true);
 
+		// hack for debugging
+		PHYSFS_mount("../data", NULL, 0);
+
 		SDL_initFramerate(&frame_manager_);
 		SDL_setFramerate(&frame_manager_, 60);
 	}
