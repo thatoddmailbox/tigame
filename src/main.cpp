@@ -71,7 +71,7 @@ int main(int argc, char * argv[])
 	game.SetScene(&scene);
 
 	tigame::Camera camera = tigame::Camera(800, 600);
-	camera.SetPosition(2, 2, 7);
+	camera.SetPosition(4, 0, 10);
 	// camera.SetRotation(-4, 20, 0);
 	camera.LookAt(glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 	scene.AddObject(&camera);
@@ -87,6 +87,11 @@ int main(int argc, char * argv[])
 	tigame::Mesh * floor_box = tigame::MeshFactory::Box(&basic, 5, 0.25, 5);
 	floor.mesh = floor_box;
 	scene.AddObject(&floor);
+
+	// tigame::Object teapot = tigame::Object();
+	// tigame::Mesh * teapot_mesh = tigame::MeshFactory::OBJ(&basic, "teapot.obj");
+	// teapot.mesh = teapot_mesh;
+	// scene.AddObject(&teapot);
 
 	game.Run();
 
