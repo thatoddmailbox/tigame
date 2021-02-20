@@ -529,12 +529,12 @@ namespace tigame
 					// first triangle
 					vertices.push_back(face_verts[0]);
 					vertices.push_back(face_verts[1]);
-					vertices.push_back(face_verts[2]);
+					vertices.push_back(face_verts[3]);
 
 					// second triangle
-					vertices.push_back(face_verts[3]);
 					vertices.push_back(face_verts[1]);
 					vertices.push_back(face_verts[2]);
+					vertices.push_back(face_verts[3]);
 				}
 			}
 			else if (first_token == "o" || first_token == "g")
