@@ -537,9 +537,9 @@ namespace tigame
 					vertices.push_back(face_verts[2]);
 				}
 			}
-			else if (first_token == "g")
+			else if (first_token == "o" || first_token == "g")
 			{
-				// no group support
+				// no object or group support
 				continue;
 			}
 			else if (first_token == "mtllib" || first_token == "usemtl")
