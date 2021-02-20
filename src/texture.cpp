@@ -41,6 +41,6 @@ namespace tigame
 
 	Texture::~Texture()
 	{
-
+		glDeleteTextures(1, &texture_);
 	}
 }
