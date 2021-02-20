@@ -547,6 +547,11 @@ namespace tigame
 				// no material support
 				continue;
 			}
+			else if (first_token == "s")
+			{
+				// no smooth-shading support
+				continue;
+			}
 			else if (first_token == "")
 			{
 				// blank line
