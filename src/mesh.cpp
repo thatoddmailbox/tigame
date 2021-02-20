@@ -6,6 +6,8 @@ namespace tigame
 	Mesh::Mesh(Shader * shader, VertexLayout layout, float * vertices, size_t vertices_size, size_t vertices_count) :
 		shader_(shader), layout_(layout), vertices_(vertices), vertices_size_(vertices_size), vertices_count_(vertices_count)
 	{
+		texture_ = nullptr;
+
 		glGenBuffers(1, &buffer_id_);
 		glBindBuffer(GL_ARRAY_BUFFER, buffer_id_);
 		glBufferData(GL_ARRAY_BUFFER, vertices_size_, vertices, GL_STATIC_DRAW);
@@ -60,6 +62,11 @@ namespace tigame
 	{
 		free(vertices_);
 		glDeleteBuffers(1, &buffer_id_);
+	}
+
+	void Mesh::SetTexture(Texture * texture)
+	{
+		texture_ = texture;
 	}
 
 	void Mesh::Draw(glm::mat4 * projection, glm::mat4 * view, glm::mat4 * model, glm::mat3 * normal, glm::vec3 * camera_position, Light * light)
