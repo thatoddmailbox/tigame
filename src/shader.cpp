@@ -28,6 +28,8 @@ namespace tigame
 		glGetShaderiv(fragment_shader, GL_COMPILE_STATUS, &success);
 		if (!success)
 		{
+			glDeleteShader(vertex_shader);
+
 			char infoLog[512];
 			glGetShaderInfoLog(fragment_shader, 512, NULL, infoLog);
 			std::cout << "fragment shader failed\n" << infoLog << std::endl;
