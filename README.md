@@ -8,6 +8,7 @@ If you have SDL2 or PhysicsFS installed in a non-standard location, set the `SDL
 
 * Install CMake
 * Get Bullet physics engine (tested with [version 2.89](https://github.com/bulletphysics/bullet3/tree/2.89)), follow build instructions for your operating system.
+* Install libpng and development headers (on most Linux distros, this will already be included)
 * Install SDL2 and development headers
 * Install [PhysicsFS](https://www.icculus.org/physfs/)
 * `mkdir build && cd build`
