@@ -5,6 +5,7 @@ namespace tigame
 	Shader::Shader(const char * vertex_source, const char * fragment_source)
 	{
 		created_ = false;
+		bound_texture_ = nullptr;
 
 		GLuint vertex_shader;
 		GLuint fragment_shader;
@@ -58,6 +59,12 @@ namespace tigame
 	void Shader::Activate()
 	{
 		glUseProgram(program_);
+
+		if (bound_texture_)
+		{
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE0, bound_texture_->texture_);
+		}
 	}
 
 	void Shader::SetUniformFloat(const std::string& name, float value)
@@ -88,5 +95,14 @@ namespace tigame
 	{
 		GLuint uniform_id = glGetUniformLocation(program_, name.c_str());
 		glUniformMatrix4fv(uniform_id, 1, GL_FALSE, glm::value_ptr(*value));
+	}
+
+	void Shader::SetUniformTexture(const std::string& name, Texture * value)
+	{
+		bound_texture_ = value;
+
+		// HACK: we assume one texture per shader and so just use unit 0
+		GLuint uniform_id = glGetUniformLocation(program_, name.c_str());
+		glUniform1i(uniform_id, 0);
 	}
 }

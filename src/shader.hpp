@@ -9,6 +9,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "texture.hpp"
+
 namespace tigame
 {
 	class Shader
@@ -22,10 +24,13 @@ namespace tigame
 		void SetUniformVector4(const std::string& name, glm::vec4 * value);
 		void SetUniformMatrix3x3(const std::string& name, glm::mat3 * value);
 		void SetUniformMatrix4x4(const std::string& name, glm::mat4 * value);
+		void SetUniformTexture(const std::string& name, Texture * value);
 
 		void Activate();
 
 	private:
+		Texture * bound_texture_;
+
 		GLuint program_;
 		bool created_;
 	};
