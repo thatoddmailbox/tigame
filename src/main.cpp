@@ -1,11 +1,13 @@
 #include "game.hpp"
 
 #include "mesh_factory.hpp"
+#include "texture.hpp"
 
 int main(int argc, char * argv[])
 {
 	tigame::Game game = tigame::Game(argv[0], "tigame", "Demo");
 
+	tigame::Texture texture = tigame::Texture("smile.png");
 	tigame::Shader basic = tigame::Shader(
 		"#version 330 core\n"
 		"layout (location = 0) in vec3 aPos;\n"
@@ -86,6 +88,7 @@ int main(int argc, char * argv[])
 	tigame::Object thing = tigame::Object();
 	thing.SetPosition(0, 2, 0);
 	tigame::Mesh * box = tigame::MeshFactory::Box(&basic, 1, 1.25, 3);
+	box->SetTexture(&texture);
 	thing.mesh = box;
 	scene.AddObject(&thing);
 
@@ -97,6 +100,7 @@ int main(int argc, char * argv[])
 	tigame::Object teapot = tigame::Object();
 	teapot.SetPosition(-5, 0, 0);
 	tigame::Mesh * teapot_mesh = tigame::MeshFactory::OBJ(&basic, "teapot.obj");
+	teapot_mesh->SetTexture(&texture);
 	teapot.mesh = teapot_mesh;
 	scene.AddObject(&teapot);
 
