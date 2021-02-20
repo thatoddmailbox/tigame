@@ -59,12 +59,6 @@ namespace tigame
 	void Shader::Activate()
 	{
 		glUseProgram(program_);
-
-		if (bound_texture_)
-		{
-			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE0, bound_texture_->texture_);
-		}
 	}
 
 	void Shader::SetUniformFloat(const std::string& name, float value)
@@ -104,5 +98,11 @@ namespace tigame
 		// HACK: we assume one texture per shader and so just use unit 0
 		GLuint uniform_id = glGetUniformLocation(program_, name.c_str());
 		glUniform1i(uniform_id, 0);
+
+		if (bound_texture_)
+		{
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, bound_texture_->texture_);
+		}
 	}
 }
