@@ -7,7 +7,7 @@ A tiny 3D game engine, still a work in progress. Uses C++, the SDL2 library, Phy
 If you have SDL2 or PhysicsFS installed in a non-standard location, set the `SDL2DIR` and `PHYSFSDIR` environment variables before running `cmake`.
 
 * Install CMake
-* Get Bullet physics engine (tested with [version 3.08](https://github.com/bulletphysics/bullet3/tree/3.09)), follow build instructions for your operating system.
+* Get Bullet physics engine (tested with [version 3.08](https://github.com/bulletphysics/bullet3/releases/tag/3.08)), follow build instructions for your operating system.
 * Install libpng and development headers (on most Linux distros, this will already be included)
 * Install SDL2 and development headers
 * Install [PhysicsFS](https://www.icculus.org/physfs/)
