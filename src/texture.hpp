@@ -4,6 +4,8 @@
 #include <cstdint>
 #include <cstdlib>
 
+#include <glad/glad.h>
+
 namespace tigame
 {
 	class Texture
@@ -15,6 +17,8 @@ namespace tigame
 	private:
 		uint64_t width_;
 		uint64_t height_;
+
+		GLuint texture_;
 	};
 }
 

@@ -27,6 +27,10 @@ namespace tigame
 		unsigned char * texture_data = (unsigned char *) malloc(image.width * image.height * 4);
 		png_image_finish_read(&image, nullptr, texture_data, image.width * 4, nullptr);
 
+		glGenTextures(1, &texture_);
+		glBindTexture(GL_TEXTURE_2D, texture_);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.width, image.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture_data);
+
 		free(texture_data);
 		free(file_data);
 	}
