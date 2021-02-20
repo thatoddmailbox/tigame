@@ -4,6 +4,8 @@ namespace tigame
 {
 	Shader::Shader(const char * vertex_source, const char * fragment_source)
 	{
+		created_ = false;
+
 		GLuint vertex_shader;
 		GLuint fragment_shader;
 		int success;
@@ -39,12 +41,16 @@ namespace tigame
 
 		glDeleteShader(vertex_shader);
 		glDeleteShader(fragment_shader);
+
+		created_ = true;
 	}
 
 	Shader::~Shader()
 	{
-		// TODO: only delete if create didn't fail
-		glDeleteProgram(program_);
+		if (created_)
+		{
+			glDeleteProgram(program_);
+		}
 	}
 
 	void Shader::Activate()

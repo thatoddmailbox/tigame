@@ -27,6 +27,7 @@ namespace tigame
 
 	private:
 		GLuint program_;
+		bool created_;
 	};
 
 	enum ShaderLocation
