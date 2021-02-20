@@ -90,6 +90,11 @@ namespace tigame
 		shader_->SetUniformVector4("light.diffuse", &light->Diffuse);
 		shader_->SetUniformVector4("light.specular", &light->Specular);
 
+		if (texture_)
+		{
+			shader_->SetUniformTexture("tex", texture_);
+		}
+
 		glBindBuffer(GL_ARRAY_BUFFER, buffer_id_);
 		glBindVertexArray(vertex_array_id_);
 		glDrawArrays(GL_TRIANGLES, 0, vertices_count_);

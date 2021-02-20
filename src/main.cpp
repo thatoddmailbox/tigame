@@ -53,6 +53,8 @@ int main(int argc, char * argv[])
 		"uniform Material material;\n"
 		"uniform Light light;\n"
 		""
+		"uniform sampler2D tex;\n"
+		""
 		"void main()\n"
 		"{\n"
 		"	vec4 ambient = light.ambient * material.ambient * light.color;\n"
@@ -67,7 +69,7 @@ int main(int argc, char * argv[])
 		"	float specular_strength = pow(max(dot(camera_direction, reflectDir), 0.0), material.shininess);\n"
 		"	vec4 specular = light.specular * specular_strength * material.specular * light.color;\n"
 		""
-		"	FragColor = ambient + diffuse + specular;\n"
+		"	FragColor = texture(tex, UV) * (ambient + diffuse + specular);\n"
 		"}\n"
 	);
 
