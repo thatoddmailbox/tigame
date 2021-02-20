@@ -18,8 +18,8 @@ namespace tigame
 		vertices[(vertices_stride * 0) + 3] = 0.00f;
 		vertices[(vertices_stride * 0) + 4] = 0.00f;
 		vertices[(vertices_stride * 0) + 5] = -1.00f;
-		vertices[(vertices_stride * 0) + 6] = 0.42f;
-		vertices[(vertices_stride * 0) + 7] = 0.42f;
+		vertices[(vertices_stride * 0) + 6] = 0.00f;
+		vertices[(vertices_stride * 0) + 7] = 1.00f;
 
 		vertices[(vertices_stride * 1) + 0] = (width / 2);
 		vertices[(vertices_stride * 1) + 1] = -(height / 2);
@@ -27,8 +27,8 @@ namespace tigame
 		vertices[(vertices_stride * 1) + 3] = 0.00f;
 		vertices[(vertices_stride * 1) + 4] = 0.00f;
 		vertices[(vertices_stride * 1) + 5] = -1.00f;
-		vertices[(vertices_stride * 1) + 6] = 0.42f;
-		vertices[(vertices_stride * 1) + 7] = 0.42f;
+		vertices[(vertices_stride * 1) + 6] = 0.00f;
+		vertices[(vertices_stride * 1) + 7] = 0.00f;
 
 		vertices[(vertices_stride * 2) + 0] = -(width / 2);
 		vertices[(vertices_stride * 2) + 1] = -(height / 2);
@@ -36,8 +36,8 @@ namespace tigame
 		vertices[(vertices_stride * 2) + 3] = 0.00f;
 		vertices[(vertices_stride * 2) + 4] = 0.00f;
 		vertices[(vertices_stride * 2) + 5] = -1.00f;
-		vertices[(vertices_stride * 2) + 6] = 0.42f;
-		vertices[(vertices_stride * 2) + 7] = 0.42f;
+		vertices[(vertices_stride * 2) + 6] = 1.00f;
+		vertices[(vertices_stride * 2) + 7] = 0.00f;
 
 		vertices[(vertices_stride * 3) + 0] = -(width / 2);
 		vertices[(vertices_stride * 3) + 1] = (height / 2);
@@ -45,8 +45,8 @@ namespace tigame
 		vertices[(vertices_stride * 3) + 3] = 0.00f;
 		vertices[(vertices_stride * 3) + 4] = 0.00f;
 		vertices[(vertices_stride * 3) + 5] = -1.00f;
-		vertices[(vertices_stride * 3) + 6] = 0.42f;
-		vertices[(vertices_stride * 3) + 7] = 0.42f;
+		vertices[(vertices_stride * 3) + 6] = 1.00f;
+		vertices[(vertices_stride * 3) + 7] = 1.00f;
 
 		vertices[(vertices_stride * 4) + 0] = (width / 2);
 		vertices[(vertices_stride * 4) + 1] = (height / 2);
@@ -54,8 +54,8 @@ namespace tigame
 		vertices[(vertices_stride * 4) + 3] = 0.00f;
 		vertices[(vertices_stride * 4) + 4] = 0.00f;
 		vertices[(vertices_stride * 4) + 5] = -1.00f;
-		vertices[(vertices_stride * 4) + 6] = 0.42f;
-		vertices[(vertices_stride * 4) + 7] = 0.42f;
+		vertices[(vertices_stride * 4) + 6] = 0.00f;
+		vertices[(vertices_stride * 4) + 7] = 1.00f;
 
 		vertices[(vertices_stride * 5) + 0] = -(width / 2);
 		vertices[(vertices_stride * 5) + 1] = -(height / 2);
@@ -63,8 +63,8 @@ namespace tigame
 		vertices[(vertices_stride * 5) + 3] = 0.00f;
 		vertices[(vertices_stride * 5) + 4] = 0.00f;
 		vertices[(vertices_stride * 5) + 5] = -1.00f;
-		vertices[(vertices_stride * 5) + 6] = 0.42f;
-		vertices[(vertices_stride * 5) + 7] = 0.42f;
+		vertices[(vertices_stride * 5) + 6] = 1.00f;
+		vertices[(vertices_stride * 5) + 7] = 0.00f;
 
 		/*
 		 * front face
