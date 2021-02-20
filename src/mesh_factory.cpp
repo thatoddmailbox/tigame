@@ -432,7 +432,7 @@ namespace tigame
 				tokens.push_back(token);
 			}
 
-			std::cout << "LINE: " << line << std::endl;
+			// std::cout << "LINE: " << line << std::endl;
 
 			// decide what to do based on the first token
 			std::string& first_token = tokens[0];
@@ -574,6 +574,7 @@ namespace tigame
 
 		for (size_t i = 0; i < vertices.size(); i++)
 		{
+			// std::cout << "vertex " << i << ": " << vertices[i].x << ", " << vertices[i].y << ", " << vertices[i].z << std::endl;
 			vertices_data[(i * vertices_stride) + 0] = vertices[i].x;
 			vertices_data[(i * vertices_stride) + 1] = vertices[i].y;
 			vertices_data[(i * vertices_stride) + 2] = vertices[i].z;
