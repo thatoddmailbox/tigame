@@ -88,10 +88,11 @@ int main(int argc, char * argv[])
 	floor.mesh = floor_box;
 	scene.AddObject(&floor);
 
-	// tigame::Object teapot = tigame::Object();
-	// tigame::Mesh * teapot_mesh = tigame::MeshFactory::OBJ(&basic, "teapot.obj");
-	// teapot.mesh = teapot_mesh;
-	// scene.AddObject(&teapot);
+	tigame::Object teapot = tigame::Object();
+	teapot.SetPosition(-5, 0, 0);
+	tigame::Mesh * teapot_mesh = tigame::MeshFactory::OBJ(&basic, "teapot.obj");
+	teapot.mesh = teapot_mesh;
+	scene.AddObject(&teapot);
 
 	game.Run();
 
