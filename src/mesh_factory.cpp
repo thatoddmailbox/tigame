@@ -487,11 +487,11 @@ namespace tigame
 					size_t i = 0;
 					while (std::getline(vertex_numbers_stream, vertex_number_string, '/'))
 					{
-						int vertex_number = std::stoi(vertex_number_string);
+						int vertex_index = std::stoi(vertex_number_string) - 1;
 						if (i == 0)
 						{
 							// this is a vertex coord
-							float3& matching = vertex_coords[vertex_number];
+							float3& matching = vertex_coords[vertex_index];
 							face_verts[token_index].x = matching.x;
 							face_verts[token_index].y = matching.y;
 							face_verts[token_index].z = matching.z;
@@ -499,14 +499,14 @@ namespace tigame
 						else if (i == 1)
 						{
 							// this is a vertex texture
-							float3& matching = vertex_textures[vertex_number];
+							float3& matching = vertex_textures[vertex_index];
 							face_verts[token_index].u = matching.x;
 							face_verts[token_index].v = matching.y;
 						}
 						else if (i == 2)
 						{
 							// this is a vertex normal
-							float3& matching = vertex_normals[vertex_number];
+							float3& matching = vertex_normals[vertex_index];
 							face_verts[token_index].nx = matching.x;
 							face_verts[token_index].ny = matching.y;
 							face_verts[token_index].nz = matching.z;
