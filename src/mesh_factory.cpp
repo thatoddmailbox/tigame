@@ -411,6 +411,18 @@ namespace tigame
 
 			line.erase(std::remove_if(line.begin(), line.end(), is_unwanted_whitespace), line.end());
 
+			if (line.size() == 0)
+			{
+				// blank line
+				continue;
+			}
+
+			if (line[0] == '#')
+			{
+				// comment
+				continue;
+			}
+
 			// tokenize it
 			std::vector<std::string> tokens;
 			std::istringstream line_stream(line);
@@ -418,12 +430,6 @@ namespace tigame
 			while (std::getline(line_stream, token, ' '))
 			{
 				tokens.push_back(token);
-			}
-
-			if (tokens.size() == 0)
-			{
-				// blank line
-				continue;
 			}
 
 			std::cout << "LINE: " << line << std::endl;
