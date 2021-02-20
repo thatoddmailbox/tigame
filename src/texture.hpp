@@ -8,6 +8,8 @@
 
 namespace tigame
 {
+	class Shader;
+
 	class Texture
 	{
 	public:
@@ -15,6 +17,8 @@ namespace tigame
 		~Texture();
 
 	private:
+		friend class Shader;
+
 		uint64_t width_;
 		uint64_t height_;
 
