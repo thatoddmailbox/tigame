@@ -19,7 +19,7 @@ int main(int argc, char * argv[])
 		"out vec2 UV;\n"
 		"void main()\n"
 		"{\n"
-		"   gl_Position = projection * view * model * vec4(aPos, 1.0);\n"
+		"	gl_Position = projection * view * model * vec4(aPos, 1.0);\n"
 		"	FragPos = vec3(model * vec4(aPos, 1.0));\n"
 		"	Normal = aNormal;\n"
 		"	UV = aUV;\n"
