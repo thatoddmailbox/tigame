@@ -24,3 +24,7 @@ include_directories("${SDL2_INCLUDE_DIR}")
 find_package(PhysFS REQUIRED)
 target_link_libraries(${PROJECT_NAME} "${PHYSFS_LIBRARY}")
 include_directories("${PHYSFS_INCLUDE_DIR}")
+
+find_package(PNG REQUIRED)
+target_link_libraries(${PROJECT_NAME} "${PNG_LIBRARIES}")
+include_directories("${PNG_INCLUDE_DIRS}")
