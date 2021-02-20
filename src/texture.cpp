@@ -21,6 +21,8 @@ namespace tigame
 
 		png_image_begin_read_from_memory(&image, file_data, file_length);
 		image.format = PNG_FORMAT_RGBA;
+		width_ = image.width;
+		height_ = image.height;
 
 		unsigned char * texture_data = (unsigned char *) malloc(image.width * image.height * 4);
 		png_image_finish_read(&image, nullptr, texture_data, image.width * 4, nullptr);

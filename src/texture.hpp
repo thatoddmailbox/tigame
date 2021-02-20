@@ -1,6 +1,7 @@
 #ifndef TIGAME_TEXTURE_HPP
 #define TIGAME_TEXTURE_HPP
 
+#include <cstdint>
 #include <cstdlib>
 
 namespace tigame
@@ -10,6 +11,10 @@ namespace tigame
 	public:
 		Texture(const char * path);
 		~Texture();
+
+	private:
+		uint64_t width_;
+		uint64_t height_;
 	};
 }
 
