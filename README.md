@@ -3,7 +3,7 @@
 
 A tiny 3D game engine, still a work in progress. Uses C++, the SDL2 library, PhysicsFS, and OpenGL.
 
-Currently, it can display a 3D scene with various objects, load meshes for those objects from an OBJ file, and load textures for those meshes from PNG files.
+Currently, it can display a 3D scene with various objects and some simplistic lighting, load meshes for those objects from an OBJ file, and load textures for those meshes from PNG files.
 
 ## Build instructions
 If you have SDL2 or PhysicsFS installed in a non-standard location, set the `SDL2DIR` and `PHYSFSDIR` environment variables before running `cmake`.
