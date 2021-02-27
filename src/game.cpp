@@ -86,7 +86,7 @@ namespace tigame
 			 */
 			if (current_scene_ != nullptr)
 			{
-				current_scene_->Update();
+				current_scene_->Update(0);
 			}
 
 			/*

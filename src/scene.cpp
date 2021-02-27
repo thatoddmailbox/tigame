@@ -23,7 +23,7 @@ namespace tigame
 
 	static float time = 0.0f;
 
-	void Scene::Update()
+	void Scene::Update(double dt)
 	{
 		for (Object * object : objects_)
 		{

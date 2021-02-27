@@ -16,7 +16,7 @@ namespace tigame
 		void AddObject(Object * object);
 		void SetMainCamera(Camera * camera);
 
-		void Update();
+		void Update(double dt);
 		void Draw();
 
 		Light light;
