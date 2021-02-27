@@ -86,7 +86,8 @@ namespace tigame
 			 */
 			if (current_scene_ != nullptr)
 			{
-				current_scene_->Update(0);
+				// TODO: actually calculate delta time instead of assuming
+				current_scene_->Update(1.0f / 60.0f);
 			}
 
 			/*
