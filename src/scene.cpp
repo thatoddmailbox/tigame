@@ -9,6 +9,8 @@ namespace tigame
 		light.Ambient = glm::vec4(0.2f, 0.2f, 0.2f, 1.0f);
 		light.Diffuse = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
 		light.Specular = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+
+		clear_color = glm::vec3(0.404f, 0.577f, 0.926f);
 	}
 
 	void Scene::AddObject(Object * object)

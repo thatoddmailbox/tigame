@@ -3,6 +3,8 @@
 
 #include <vector>
 
+#include <glm/glm.hpp>
+
 #include "camera.hpp"
 #include "object.hpp"
 
@@ -20,6 +22,7 @@ namespace tigame
 		void Draw();
 
 		Light light;
+		glm::vec3 clear_color;
 
 	private:
 		std::vector<Object *> objects_;

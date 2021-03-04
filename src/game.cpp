@@ -51,7 +51,6 @@ namespace tigame
 		SDL_Event e;
 
 		glEnable(GL_DEPTH_TEST);
-		glClearColor(0.404, 0.577, 0.926, 1.0);
 
 		while (!quit)
 		{
@@ -93,6 +92,14 @@ namespace tigame
 			/*
 			 * draw
 			 */
+			if (current_scene_ != nullptr)
+			{
+				glClearColor(current_scene_->clear_color.r, current_scene_->clear_color.g, current_scene_->clear_color.b, 1.0);
+			}
+			else
+			{
+				glClearColor(0.404, 0.577, 0.926, 1.0);
+			}
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 			if (current_scene_ != nullptr)
