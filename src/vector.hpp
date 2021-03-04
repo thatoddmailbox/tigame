@@ -11,6 +11,13 @@ namespace tigame
 		uint32_t y;
 		uint32_t z;
 	};
+
+	struct Vector3f
+	{
+		float x;
+		float y;
+		float z;
+	};
 }
 
 #endif
