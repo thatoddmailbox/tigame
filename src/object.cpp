@@ -80,7 +80,7 @@ namespace tigame
 		else
 		{
 			rotation_.x = -atan2f(m32, m22) * (180 / M_PI);
-			rotation_.z = 0 * (180 / M_PI);
+			rotation_.z = 0;
 		}
 
 		location_dirty_ = true;
