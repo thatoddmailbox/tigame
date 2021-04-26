@@ -59,18 +59,10 @@ namespace tigame
 		glm::mat4 look_at_matrix = glm::lookAt(position_, target, up);
 
 		// based on https://github.com/mrdoob/three.js/blob/ab1bac16e8d82c1d5c1dacb22d552a8fdced3add/src/math/Euler.js#L136
-		float m13 = glm::row(look_at_matrix, 1)[3];
-		if (m13 < -1)
-		{
-			m13 = -1;
-		}
-		if (m13 > 1)
-		{
-			m13 = 1;
-		}
 
 		float m11 = glm::row(look_at_matrix, 0)[0];
 		float m12 = glm::row(look_at_matrix, 0)[1];
+		float m13 = glm::row(look_at_matrix, 0)[2];
 		float m22 = glm::row(look_at_matrix, 1)[1];
 		float m23 = glm::row(look_at_matrix, 1)[2];
 		float m32 = glm::row(look_at_matrix, 2)[1];
