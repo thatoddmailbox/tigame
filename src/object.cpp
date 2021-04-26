@@ -70,16 +70,16 @@ namespace tigame
 
 		float clampedm13 = (m13 < -1 ? -1 : (m13 > 1 ? 1 : m13));
 
-		rotation_.y = -asinf(clampedm13) * (180 / M_PI);
+		rotation_.y = glm::degrees(-asinf(clampedm13));
 
 		if (abs(m13) < 0.9999999)
 		{
-			rotation_.x = -atan2f(-m23, m33) * (180 / M_PI);
-			rotation_.z = atan2f(-m12, m11) * (180 / M_PI);
+			rotation_.x = glm::degrees(-atan2f(-m23, m33));
+			rotation_.z = glm::degrees(atan2f(-m12, m11));
 		}
 		else
 		{
-			rotation_.x = -atan2f(m32, m22) * (180 / M_PI);
+			rotation_.x = glm::degrees(-atan2f(m32, m22));
 			rotation_.z = 0;
 		}
 
