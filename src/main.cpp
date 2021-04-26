@@ -79,7 +79,7 @@ int main(int argc, char * argv[])
 	game.SetScene(&scene);
 
 	tigame::Camera camera = tigame::Camera(800, 600);
-	camera.SetPosition(4, 4, 10);
+	camera.SetPosition(5, 4, 5);
 	camera.SetRotation(-16, 22, 0);
 	// camera.LookAt(glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 	scene.AddObject(&camera);
