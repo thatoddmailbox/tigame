@@ -70,17 +70,17 @@ namespace tigame
 
 		float clampedm13 = (m13 < -1 ? -1 : (m13 > 1 ? 1 : m13));
 
-		rotation_.y = asinf(clampedm13);
+		rotation_.y = -asinf(clampedm13) * (180 / M_PI);
 
 		if (abs(m13) < 0.9999999)
 		{
-			rotation_.x = atan2f(-m23, m33);
-			rotation_.z = atan2f(-m12, m11);
+			rotation_.x = -atan2f(-m23, m33) * (180 / M_PI);
+			rotation_.z = atan2f(-m12, m11) * (180 / M_PI);
 		}
 		else
 		{
-			rotation_.x = atan2f(m32, m22);
-			rotation_.z = 0;
+			rotation_.x = -atan2f(m32, m22) * (180 / M_PI);
+			rotation_.z = 0 * (180 / M_PI);
 		}
 
 		location_dirty_ = true;
