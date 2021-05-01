@@ -1,7 +1,21 @@
 #include "game.hpp"
 
+#include "component.hpp"
 #include "mesh_factory.hpp"
 #include "texture.hpp"
+
+class SampleComponent : public tigame::Component
+{
+	void Start()
+	{
+
+	}
+
+	void Update(double dt, tigame::Object * object)
+	{
+		object->AddRotation(1, 0, 0);
+	}
+};
 
 int main(int argc, char * argv[])
 {
@@ -89,6 +103,7 @@ int main(int argc, char * argv[])
 	tigame::Mesh * box = tigame::MeshFactory::Box(&basic, 1, 1.25, 3);
 	box->SetTexture(&texture);
 	thing.mesh = box;
+	thing.AddComponent(std::make_shared<SampleComponent>());
 	scene.AddObject(&thing);
 
 	tigame::Object floor = tigame::Object();
