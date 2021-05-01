@@ -1,12 +1,20 @@
 #ifndef TIGAME_OBJECT_HPP
 #define TIGAME_OBJECT_HPP
 
+#include <memory>
 #include <iostream>
+#include <vector>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_access.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+namespace tigame
+{
+	class Object;
+}
+
+#include "component.hpp"
 #include "mesh.hpp"
 
 namespace tigame
@@ -26,6 +34,8 @@ namespace tigame
 
 		void LookAt(glm::vec3 target, glm::vec3 up);
 
+		void AddComponent(const std::shared_ptr<Component>& component);
+
 		Mesh * mesh = nullptr;
 
 	protected:
@@ -35,6 +45,8 @@ namespace tigame
 
 		glm::mat4 model_;
 		glm::mat3 normal_;
+
+		std::vector<std::shared_ptr<Component>> components_;
 	};
 }
 

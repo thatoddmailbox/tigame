@@ -4,7 +4,10 @@ namespace tigame
 {
 	void Object::Update()
 	{
-		
+		for (std::shared_ptr<Component>& component : components_)
+		{
+			component->Update(0, this);
+		}
 	}
 
 	void Object::Draw(glm::mat4 * projection, glm::mat4 * view, glm::vec3 * camera_position, Light * light)
@@ -96,5 +99,10 @@ namespace tigame
 		}
 
 		location_dirty_ = true;
+	}
+
+	void Object::AddComponent(const std::shared_ptr<Component>& component)
+	{
+		components_.push_back(component);
 	}
 }
