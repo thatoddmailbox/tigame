@@ -9,6 +9,8 @@ namespace tigame
 
 	void Camera::Update(tigame::Scene * scene, float dt)
 	{
+		Object::Update(scene, dt);
+
 		if (location_dirty_)
 		{
 			view_ = glm::mat4(1.0f);
@@ -17,8 +19,6 @@ namespace tigame
 			view_ = glm::rotate(view_, glm::radians(-rotation_.z), glm::vec3(0.0f, 0.0f, 1.0f));
 			view_ = glm::translate(view_, position_ * glm::vec3(-1.0f));
 		}
-
-		Object::Update(scene, dt);
 	}
 
 	glm::mat4 * Camera::GetProjection()
