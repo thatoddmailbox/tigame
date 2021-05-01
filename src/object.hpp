@@ -21,6 +21,8 @@ namespace tigame
 		glm::vec3& GetRotation();
 		void SetPosition(float x, float y, float z);
 		void SetRotation(float x, float y, float z);
+		void AddPosition(float x, float y, float z);
+		void AddRotation(float x, float y, float z);
 
 		void LookAt(glm::vec3 target, glm::vec3 up);
 

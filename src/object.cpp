@@ -54,6 +54,18 @@ namespace tigame
 		location_dirty_ = true;
 	}
 
+	void Object::AddPosition(float x, float y, float z)
+	{
+		glm::vec3& position = GetPosition();
+		SetPosition(position.x + x, position.y + y, position.z + z);
+	}
+
+	void Object::AddRotation(float x, float y, float z)
+	{
+		glm::vec3& rotation = GetRotation();
+		SetRotation(rotation.x + x, rotation.y + y, rotation.z + z);
+	}
+
 	void Object::LookAt(glm::vec3 target, glm::vec3 up)
 	{
 		glm::mat4 look_at_matrix = glm::lookAt(position_, target, up);
