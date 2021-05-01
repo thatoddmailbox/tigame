@@ -6,6 +6,7 @@
 #include <glm/glm.hpp>
 
 #include "camera.hpp"
+#include "mesh.hpp"
 #include "object.hpp"
 
 namespace tigame

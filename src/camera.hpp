@@ -7,7 +7,13 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+namespace tigame
+{
+	class Camera;
+}
+
 #include "object.hpp"
+#include "scene.hpp"
 
 namespace tigame
 {
@@ -16,7 +22,7 @@ namespace tigame
 	public:
 		Camera(size_t viewport_width, size_t viewport_height);
 
-		void Update() override;
+		void Update(Scene * scene, float dt) override;
 
 		glm::mat4 * GetProjection();
 		glm::mat4 * GetView();

@@ -2,11 +2,11 @@
 
 namespace tigame
 {
-	void Object::Update()
+	void Object::Update(Scene * scene, float dt)
 	{
 		for (std::shared_ptr<Component>& component : components_)
 		{
-			component->Update(0, this);
+			component->Update(scene, this, 0);
 		}
 	}
 

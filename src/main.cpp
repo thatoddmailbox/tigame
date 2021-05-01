@@ -11,7 +11,7 @@ class SampleComponent : public tigame::Component
 
 	}
 
-	void Update(double dt, tigame::Object * object)
+	void Update(tigame::Scene * scene, tigame::Object * object, double dt)
 	{
 		object->AddRotation(1, 0, 0);
 	}

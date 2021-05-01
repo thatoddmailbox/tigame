@@ -9,11 +9,6 @@
 #include <glm/gtc/matrix_access.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-namespace tigame
-{
-	class Object;
-}
-
 #include "component.hpp"
 #include "mesh.hpp"
 
@@ -22,7 +17,7 @@ namespace tigame
 	class Object
 	{
 	public:
-		virtual void Update();
+		virtual void Update(Scene * scene, float dt);
 		void Draw(glm::mat4 * projection, glm::mat4 * view, glm::vec3 * camera_position, Light * light);
 
 		glm::vec3& GetPosition();
