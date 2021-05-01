@@ -22,10 +22,13 @@ namespace tigame
 
 		glm::vec3& GetPosition();
 		glm::vec3& GetRotation();
+		glm::vec3& GetScale();
 		void SetPosition(float x, float y, float z);
 		void SetRotation(float x, float y, float z);
+		void SetScale(float x, float y, float z);
 		void AddPosition(float x, float y, float z);
 		void AddRotation(float x, float y, float z);
+		void AddScale(float x, float y, float z);
 
 		void LookAt(glm::vec3 target, glm::vec3 up);
 
@@ -36,6 +39,7 @@ namespace tigame
 	protected:
 		glm::vec3 position_ = glm::vec3(0.0f, 0.0f, 0.0f);
 		glm::vec3 rotation_ = glm::vec3(0.0f, 0.0f, 0.0f);
+		glm::vec3 scale_ = glm::vec3(1.0f, 1.0f, 1.0f);
 		bool location_dirty_ = true;
 
 		glm::mat4 model_;

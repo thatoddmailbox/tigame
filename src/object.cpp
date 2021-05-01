@@ -19,6 +19,7 @@ namespace tigame
 			model_ = glm::rotate(model_, glm::radians(rotation_.x), glm::vec3(1.0f, 0.0f, 0.0f));
 			model_ = glm::rotate(model_, glm::radians(rotation_.y), glm::vec3(0.0f, 1.0f, 0.0f));
 			model_ = glm::rotate(model_, glm::radians(rotation_.z), glm::vec3(0.0f, 0.0f, 1.0f));
+			model_ = glm::scale(model_, scale_);
 
 			normal_ = glm::mat3(glm::transpose(glm::inverse(model_)));
 
@@ -41,6 +42,11 @@ namespace tigame
 		return rotation_;
 	}
 
+	glm::vec3& Object::GetScale()
+	{
+		return scale_;
+	}
+
 	void Object::SetPosition(float x, float y, float z)
 	{
 		position_.x = x;
@@ -57,6 +63,14 @@ namespace tigame
 		location_dirty_ = true;
 	}
 
+	void Object::SetScale(float x, float y, float z)
+	{
+		scale_.x = x;
+		scale_.y = y;
+		scale_.z = z;
+		location_dirty_ = true;
+	}
+
 	void Object::AddPosition(float x, float y, float z)
 	{
 		glm::vec3& position = GetPosition();
@@ -67,6 +81,12 @@ namespace tigame
 	{
 		glm::vec3& rotation = GetRotation();
 		SetRotation(rotation.x + x, rotation.y + y, rotation.z + z);
+	}
+
+	void Object::AddScale(float x, float y, float z)
+	{
+		glm::vec3& scale = GetScale();
+		SetScale(scale.x + x, scale.y + y, scale.z + z);
 	}
 
 	void Object::LookAt(glm::vec3 target, glm::vec3 up)
