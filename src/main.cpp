@@ -2,6 +2,7 @@
 
 #include "component.hpp"
 #include "mesh_factory.hpp"
+#include "orbit_component.hpp"
 #include "texture.hpp"
 
 #include <cmath>
@@ -116,7 +117,7 @@ int main(int argc, char * argv[])
 	tigame::Camera camera = tigame::Camera(800, 600);
 	camera.SetPosition(8, 4, 8);
 	camera.LookAt(glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
-	camera.AddComponent(std::make_shared<SampleCameraComponent>());
+	camera.AddComponent(std::make_shared<tigame::OrbitComponent>());
 	scene.AddObject(&camera);
 	scene.SetMainCamera(&camera);
 
