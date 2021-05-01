@@ -4,7 +4,28 @@
 #include "mesh_factory.hpp"
 #include "texture.hpp"
 
-class SampleComponent : public tigame::Component
+#include <cmath>
+
+class SampleCameraComponent : public tigame::Component
+{
+	float time = 0.0f;
+
+	void Start()
+	{
+
+	}
+
+	void Update(tigame::Scene * scene, tigame::Object * object, double dt)
+	{
+		object->SetPosition(8 * cos(time), 4, 8 * sin(time));
+		object->LookAt(glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+
+		// TODO: use delta time
+		time += 0.01f;
+	}
+};
+
+class SampleBoxComponent : public tigame::Component
 {
 	void Start()
 	{
@@ -95,6 +116,7 @@ int main(int argc, char * argv[])
 	tigame::Camera camera = tigame::Camera(800, 600);
 	camera.SetPosition(8, 4, 8);
 	camera.LookAt(glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+	camera.AddComponent(std::make_shared<SampleCameraComponent>());
 	scene.AddObject(&camera);
 	scene.SetMainCamera(&camera);
 
@@ -103,7 +125,7 @@ int main(int argc, char * argv[])
 	tigame::Mesh * box = tigame::MeshFactory::Box(&basic, 1, 1.25, 3);
 	box->SetTexture(&texture);
 	thing.mesh = box;
-	thing.AddComponent(std::make_shared<SampleComponent>());
+	thing.AddComponent(std::make_shared<SampleBoxComponent>());
 	scene.AddObject(&thing);
 
 	tigame::Object floor = tigame::Object();
