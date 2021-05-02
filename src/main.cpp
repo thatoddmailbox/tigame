@@ -43,6 +43,7 @@ int main(int argc, char * argv[])
 {
 	tigame::Game game = tigame::Game(argv[0], "tigame", "Demo");
 
+	tigame::Texture blank = tigame::Texture("blank.png");
 	tigame::Texture texture = tigame::Texture("smile.png");
 	tigame::Shader basic = tigame::Shader(
 		"#version 330 core\n"
