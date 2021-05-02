@@ -8,7 +8,7 @@ Currently, it can display a 3D scene with various objects and some simplistic li
 ## Build instructions
 If you have SDL2 or PhysicsFS installed in a non-standard location, set the `SDL2DIR` and `PHYSFSDIR` environment variables before running `cmake`.
 
-Please note that these instructions have been only tested on Linux. They should probably work on OS X, and potentially Windows with some modifications?
+Please note that these instructions have been only tested on Linux. They should probably work on macOS, and potentially Windows with some modifications?
 
 * Install CMake
 * Get Bullet physics engine (tested with [version 3.08](https://github.com/bulletphysics/bullet3/releases/tag/3.08)), follow build instructions for your operating system.
