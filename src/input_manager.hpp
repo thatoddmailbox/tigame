@@ -8,6 +8,9 @@ namespace tigame
 		MouseX,
 		MouseY
 	};
+	enum InputButton
+	{
+	};
 
 	class InputManager
 	{
