@@ -10,6 +10,8 @@ namespace tigame
 	};
 
 	class InputManager
+	{
+		double GetAxis(InputAxis axis);
 	};
 }
 
