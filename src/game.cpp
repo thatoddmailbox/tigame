@@ -32,6 +32,8 @@ namespace tigame
 
 		SDL_initFramerate(&frame_manager_);
 		SDL_setFramerate(&frame_manager_, 60);
+
+		input_manager_ = InputManager();
 	}
 
 	Game::~Game()

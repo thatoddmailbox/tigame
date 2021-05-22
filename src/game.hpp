@@ -10,6 +10,7 @@
 
 #include <physfs.h>
 
+#include "input_manager.hpp"
 #include "scene.hpp"
 
 namespace tigame
@@ -28,6 +29,8 @@ namespace tigame
 		FPSmanager frame_manager_;
 		SDL_Window * window_;
 		Scene * current_scene_ = nullptr;
+
+		InputManager input_manager_;
 
 		std::string organization_;
 		std::string app_name_;
