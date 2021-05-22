@@ -3,9 +3,13 @@
 
 namespace tigame
 {
-	class InputManager
+	enum InputAxes
 	{
+		MouseX,
+		MouseY
+	};
 
+	class InputManager
 	};
 }
 
