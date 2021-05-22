@@ -15,6 +15,8 @@ namespace tigame
 		double GetAxis(InputAxis axis);
 
 	private:
+		friend class Game;
+
 		void Update();
 	};
 }
