@@ -11,7 +11,11 @@ namespace tigame
 
 	class InputManager
 	{
+	public:
 		double GetAxis(InputAxis axis);
+
+	private:
+		void Update();
 	};
 }
 
