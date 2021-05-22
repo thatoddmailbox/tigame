@@ -90,6 +90,7 @@ namespace tigame
 			/*
 			 * update
 			 */
+			input_manager_.Update();
 			if (current_scene_ != nullptr)
 			{
 				// TODO: actually calculate delta time instead of assuming
