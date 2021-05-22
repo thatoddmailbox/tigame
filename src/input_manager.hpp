@@ -3,7 +3,7 @@
 
 namespace tigame
 {
-	enum InputAxes
+	enum InputAxis
 	{
 		MouseX,
 		MouseY
