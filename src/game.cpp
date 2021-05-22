@@ -42,6 +42,11 @@ namespace tigame
 		SDL_DestroyWindow(window_);
 	}
 
+	InputManager& Game::GetInputManager()
+	{
+		return input_manager_;
+	}
+
 	void Game::SetScene(Scene * new_scene)
 	{
 		current_scene_ = new_scene;

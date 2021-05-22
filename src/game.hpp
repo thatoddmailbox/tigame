@@ -21,6 +21,8 @@ namespace tigame
 		Game(const char * argv0, std::string organization, std::string app_name);
 		~Game();
 
+		InputManager& GetInputManager();
+
 		void SetScene(Scene * new_scene);
 
 		void Run();
