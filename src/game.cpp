@@ -80,6 +80,8 @@ namespace tigame
 						break;
 					}
 				}
+
+				GetInputManager().ProcessEvent(&e);
 			}
 
 			if (quit)
