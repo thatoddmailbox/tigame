@@ -12,11 +12,35 @@ namespace tigame
 		{
 			return vertical_;
 		}
+		else if (axis == InputAxis::MouseScrollX)
+		{
+			return mouse_scroll_x_;
+		}
+		else if (axis == InputAxis::MouseScrollY)
+		{
+			return mouse_scroll_y_;
+		}
+	}
+
+	void InputManager::EarlyUpdate()
+	{
+		mouse_scroll_x_ = 0;
+		mouse_scroll_y_ = 0;
 	}
 
 	void InputManager::ProcessEvent(SDL_Event * e)
 	{
-		
+		if (e->type == SDL_MOUSEWHEEL)
+		{
+			if (e->wheel.x != 0)
+			{
+				mouse_scroll_x_ = e->wheel.x;
+			}
+			if (e->wheel.y != 0)
+			{
+				mouse_scroll_y_ = e->wheel.y;
+			}
+		}
 	}
 
 	void InputManager::Update()

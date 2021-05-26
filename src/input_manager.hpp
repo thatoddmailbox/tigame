@@ -11,7 +11,10 @@ namespace tigame
 		Vertical,
 
 		MouseX,
-		MouseY
+		MouseY,
+
+		MouseScrollX,
+		MouseScrollY
 	};
 
 	enum InputButton
@@ -26,6 +29,7 @@ namespace tigame
 	private:
 		friend class Game;
 
+		void EarlyUpdate();
 		void ProcessEvent(SDL_Event * e);
 		void Update();
 
@@ -33,6 +37,8 @@ namespace tigame
 		bool mouse_down_last_;
 
 		int horizontal_, vertical_;
+
+		int mouse_scroll_x_, mouse_scroll_y_;
 	};
 }
 
