@@ -7,6 +7,7 @@
 
 #include <glm/glm.hpp>
 
+#include "game.hpp"
 #include "object.hpp"
 
 namespace tigame
@@ -18,15 +19,13 @@ namespace tigame
 
 	void OrbitComponent::Update(tigame::Game * game, tigame::Scene * scene, tigame::Object * object, double dt)
 	{
-		// TODO: an actual input subsystem instead of calling SDL?
-		int mouse_x, mouse_y;
-		uint32_t mouse_state = SDL_GetMouseState(&mouse_x, &mouse_y);
-		bool mouse_down = (mouse_state & SDL_BUTTON(SDL_BUTTON_LEFT) != 0);
+		double horizontal = game->GetInputManager().GetAxis(InputAxis::Horizontal);
+		double vertical = game->GetInputManager().GetAxis(InputAxis::Vertical);
 
-		if (mouse_down && mouse_down_last_)
+		if (horizontal != 0 || vertical != 0)
 		{
-			yaw_ += (mouse_x - mouse_x_last_) * 0.5f;
-			pitch_ += (mouse_y - mouse_y_last_) * 0.5f;
+			yaw_ += horizontal * 0.5f;
+			pitch_ += vertical * 0.5f;
 			if (pitch_ > 89.0f)
 			{
 				pitch_ = 89.0f;
@@ -43,9 +42,5 @@ namespace tigame
 			radius_ * sin(glm::radians(yaw_)) * cos(glm::radians(pitch_))
 		);
 		object->LookAt(glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
-
-		mouse_x_last_ = mouse_x;
-		mouse_y_last_ = mouse_y;
-		mouse_down_last_ = mouse_down;
 	}
 }
