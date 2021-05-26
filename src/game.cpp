@@ -61,6 +61,8 @@ namespace tigame
 
 		while (!quit)
 		{
+			input_manager_.EarlyUpdate();
+
 			/*
 			 * handle events
 			 */
@@ -81,7 +83,7 @@ namespace tigame
 					}
 				}
 
-				GetInputManager().ProcessEvent(&e);
+				input_manager_.ProcessEvent(&e);
 			}
 
 			if (quit)
