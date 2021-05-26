@@ -7,6 +7,9 @@ namespace tigame
 {
 	enum InputAxis
 	{
+		Horizontal,
+		Vertical,
+
 		MouseX,
 		MouseY
 	};
