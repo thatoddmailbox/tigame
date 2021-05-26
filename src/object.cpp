@@ -6,7 +6,7 @@ namespace tigame
 	{
 		for (std::shared_ptr<Component>& component : components_)
 		{
-			component->Update(scene, this, 0);
+			component->Update(scene, this, dt);
 		}
 	}
 
