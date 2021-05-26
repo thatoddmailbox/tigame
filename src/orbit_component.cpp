@@ -34,6 +34,12 @@ namespace tigame
 			}
 		}
 
+		double scroll = game->GetInputManager().GetAxis(InputAxis::MouseScrollY);
+		if (scroll != 0)
+		{
+			radius_ -= scroll;
+		}
+
 		object->SetPosition(
 			radius_ * cos(glm::radians(yaw_)) * cos(glm::radians(pitch_)),
 			radius_ * sin(glm::radians(pitch_)),
