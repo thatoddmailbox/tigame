@@ -3,8 +3,6 @@
 #include <cmath>
 #include <cstdint>
 
-#include <SDL2/SDL.h>
-
 #include <glm/glm.hpp>
 
 #include "game.hpp"
