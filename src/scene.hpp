@@ -11,6 +11,8 @@
 
 namespace tigame
 {
+	class Game;
+
 	class Scene
 	{
 	public:
@@ -19,7 +21,7 @@ namespace tigame
 		void AddObject(Object * object);
 		void SetMainCamera(Camera * camera);
 
-		void Update(double dt);
+		void Update(Game * game, double dt);
 		void Draw();
 
 		Light light;

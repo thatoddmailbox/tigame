@@ -16,7 +16,7 @@ namespace tigame
 
 	}
 
-	void OrbitComponent::Update(tigame::Scene * scene, tigame::Object * object, double dt)
+	void OrbitComponent::Update(tigame::Game * game, tigame::Scene * scene, tigame::Object * object, double dt)
 	{
 		// TODO: an actual input subsystem instead of calling SDL?
 		int mouse_x, mouse_y;

@@ -14,10 +14,12 @@
 
 namespace tigame
 {
+	class Game;
+
 	class Object
 	{
 	public:
-		virtual void Update(Scene * scene, float dt);
+		virtual void Update(Game * game, Scene * scene, float dt);
 		void Draw(glm::mat4 * projection, glm::mat4 * view, glm::vec3 * camera_position, Light * light);
 
 		glm::vec3& GetPosition();

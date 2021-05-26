@@ -7,9 +7,9 @@ namespace tigame
 		projection_ = glm::perspective(glm::radians(45.0f), ((float) viewport_width) / ((float) viewport_height), 0.1f, 100.0f);
 	}
 
-	void Camera::Update(tigame::Scene * scene, float dt)
+	void Camera::Update(Game * game, Scene * scene, float dt)
 	{
-		Object::Update(scene, dt);
+		Object::Update(game, scene, dt);
 
 		if (location_dirty_)
 		{

@@ -33,7 +33,7 @@ class SampleBoxComponent : public tigame::Component
 
 	}
 
-	void Update(tigame::Scene * scene, tigame::Object * object, double dt)
+	void Update(tigame::Game * game, tigame::Scene * scene, tigame::Object * object, double dt)
 	{
 		object->AddRotation(1, 0, 0);
 	}

@@ -3,6 +3,7 @@
 
 namespace tigame
 {
+	class Game;
 	class Scene;
 	class Object;
 
@@ -10,7 +11,7 @@ namespace tigame
 	{
 	public:
 		virtual void Start() = 0;
-		virtual void Update(tigame::Scene *, tigame::Object *, double dt) = 0;
+		virtual void Update(tigame::Game *, tigame::Scene *, tigame::Object *, double dt) = 0;
 	};
 }
 

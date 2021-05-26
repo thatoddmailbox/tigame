@@ -23,11 +23,11 @@ namespace tigame
 		main_camera_ = camera;
 	}
 
-	void Scene::Update(double dt)
+	void Scene::Update(Game * game, double dt)
 	{
 		for (Object * object : objects_)
 		{
-			object->Update(this, dt);
+			object->Update(game, this, dt);
 		}
 	}
 
