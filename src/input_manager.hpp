@@ -28,6 +28,11 @@ namespace tigame
 
 		void ProcessEvent(SDL_Event * e);
 		void Update();
+
+		int mouse_x_last_, mouse_y_last_;
+		bool mouse_down_last_;
+
+		int horizontal_, vertical_;
 	};
 }
 
