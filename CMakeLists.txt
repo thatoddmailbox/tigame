@@ -5,7 +5,7 @@ project(tigame)
 file(GLOB SOURCES ${CMAKE_CURRENT_LIST_DIR}/src/*.cpp)
 file(GLOB EXTERNAL_SOURCES ${CMAKE_CURRENT_LIST_DIR}/external/*.c)
 
-add_executable(${PROJECT_NAME} ${SOURCES} ${EXTERNAL_SOURCES} ${CMAKE_CURRENT_LIST_DIR}/glad/src/glad.c)
+add_executable(${PROJECT_NAME} ${GAME_SOURCES} ${SOURCES} ${EXTERNAL_SOURCES} ${CMAKE_CURRENT_LIST_DIR}/glad/src/glad.c)
 include_directories("${CMAKE_CURRENT_LIST_DIR}/src")
 include_directories("${CMAKE_CURRENT_LIST_DIR}/glad/include")
 include_directories("${CMAKE_CURRENT_LIST_DIR}/external")
