@@ -64,6 +64,11 @@ namespace tigame
 		game_components_.push_back(game_component);
 	}
 
+	Scene * Game::GetScene()
+	{
+		return current_scene_;
+	}
+
 	void Game::SetScene(Scene * new_scene)
 	{
 		current_scene_ = new_scene;

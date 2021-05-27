@@ -30,6 +30,7 @@ namespace tigame
 
 		void AddComponent(const std::shared_ptr<GameComponent>& game_component);
 
+		Scene * GetScene();
 		void SetScene(Scene * new_scene);
 
 		void Run();
