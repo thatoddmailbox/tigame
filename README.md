@@ -7,6 +7,7 @@ Currently, it can display a 3D scene with various objects and some simplistic li
 
 ## Repo structure
 * `cmake` - This folder contains files used for the CMake build system.
+* `external` - This folder contains some external libraries and headers that are used by tigame.
 
 ## Build instructions
 If you have SDL2 or PhysicsFS installed in a non-standard location, set the `SDL2DIR` and `PHYSFSDIR` environment variables before running `cmake`.
