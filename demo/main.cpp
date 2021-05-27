@@ -45,7 +45,6 @@ int main(int argc, char * argv[])
 
 	tigame::Texture blank = tigame::Texture("blank.png");
 	tigame::Texture texture = tigame::Texture("smile.png");
-	tigame::Texture wood = tigame::Texture("wood.png");
 	tigame::Shader basic = tigame::Shader(
 		"#version 330 core\n"
 		"layout (location = 0) in vec3 aPos;\n"
@@ -137,48 +136,11 @@ int main(int argc, char * argv[])
 	scene.AddObject(&floor);
 
 	tigame::Object teapot = tigame::Object();
-	teapot.SetPosition(-5, 0, -1);
-	teapot.SetRotation(0, -70, 0);
-	tigame::Mesh * teapot_mesh = tigame::MeshFactory::OBJ(&basic, "newell_teaset/teacup.obj");
+	teapot.SetPosition(-5, 0, 0);
+	tigame::Mesh * teapot_mesh = tigame::MeshFactory::OBJ(&basic, "teapot.obj");
 	teapot_mesh->SetTexture(&texture);
 	teapot.mesh = teapot_mesh;
 	scene.AddObject(&teapot);
-
-	tigame::Object piece = tigame::Object();
-	piece.SetPosition(1, 0, -1);
-	piece.SetScale(0.1f, 0.1f, 0.1f);
-	tigame::Mesh * piece_mesh = tigame::MeshFactory::OBJ(&basic, "chess/pawn.obj");
-	piece_mesh->SetTexture(&blank);
-	piece_mesh->material.Ambient.x = 0.25f;
-	piece_mesh->material.Ambient.y = 0.25f;
-	piece_mesh->material.Ambient.z = 0.25f;
-	piece_mesh->material.Diffuse.x = 0.25f;
-	piece_mesh->material.Diffuse.y = 0.25f;
-	piece_mesh->material.Diffuse.z = 0.25f;
-	piece_mesh->material.Specular.x = 0.25f;
-	piece_mesh->material.Specular.y = 0.25f;
-	piece_mesh->material.Specular.z = 0.25f;
-	piece_mesh->material.Shininess = 0.001f;
-	piece.mesh = piece_mesh;
-	scene.AddObject(&piece);
-
-	tigame::Object piece2 = tigame::Object();
-	piece2.SetPosition(3, 0, -1);
-	piece2.SetScale(0.1f, 0.1f, 0.1f);
-	tigame::Mesh * piece2_mesh = tigame::MeshFactory::OBJ(&basic, "chess/queen.obj");
-	piece2_mesh->SetTexture(&blank);
-	piece2_mesh->material.Ambient.x = 0.25f;
-	piece2_mesh->material.Ambient.y = 0.25f;
-	piece2_mesh->material.Ambient.z = 0.25f;
-	piece2_mesh->material.Diffuse.x = 0.25f;
-	piece2_mesh->material.Diffuse.y = 0.25f;
-	piece2_mesh->material.Diffuse.z = 0.25f;
-	piece2_mesh->material.Specular.x = 0.25f;
-	piece2_mesh->material.Specular.y = 0.25f;
-	piece2_mesh->material.Specular.z = 0.25f;
-	piece2_mesh->material.Shininess = 0.001f;
-	piece2.mesh = piece2_mesh;
-	scene.AddObject(&piece2);
 
 	game.Run();
 
