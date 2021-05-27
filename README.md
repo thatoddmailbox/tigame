@@ -7,6 +7,7 @@ Currently, it can display a 3D scene with various objects and some simplistic li
 
 ## Repo structure
 * `cmake` - This folder contains files used for the CMake build system.
+* `data` - This folder contains data files used by the game (textures, models, etc).
 * `external` - This folder contains some external libraries and headers that are used by tigame.
 * `glad` - This folder contains headers used by tigame to access OpenGL in a cross-platform manner.
 * `src` - This folder contains the source code of tigame.
