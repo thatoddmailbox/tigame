@@ -18,6 +18,11 @@ namespace tigame
 		objects_.push_back(object);	
 	}
 
+	const std::vector<Object *>& Scene::GetObjects()
+	{
+		return objects_;
+	}
+
 	void Scene::SetMainCamera(Camera * camera)
 	{
 		main_camera_ = camera;

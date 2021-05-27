@@ -19,6 +19,8 @@ namespace tigame
 		Scene();
 
 		void AddObject(Object * object);
+		const std::vector<Object *>& GetObjects();
+
 		void SetMainCamera(Camera * camera);
 
 		void Update(Game * game, double dt);
