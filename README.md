@@ -9,6 +9,7 @@ Currently, it can display a 3D scene with various objects and some simplistic li
 * `cmake` - This folder contains files used for the CMake build system.
 * `external` - This folder contains some external libraries and headers that are used by tigame.
 * `glad` - This folder contains headers used by tigame to access OpenGL in a cross-platform manner.
+* `src` - This folder contains the source code of tigame.
 
 ## Build instructions
 If you have SDL2 or PhysicsFS installed in a non-standard location, set the `SDL2DIR` and `PHYSFSDIR` environment variables before running `cmake`.
