@@ -18,8 +18,8 @@ endif()
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 find_package(SDL2 REQUIRED)
-target_link_libraries(${PROJECT_NAME} "${SDL2_LIBRARY}" "${SDL2MAIN_LIBRARY}")
-include_directories("${SDL2_INCLUDE_DIR}")
+target_link_libraries(${PROJECT_NAME} "${SDL2_LIBRARIES}" "${SDL2MAIN_LIBRARY}")
+include_directories("${SDL2_INCLUDE_DIRS}")
 
 find_package(PhysFS REQUIRED)
 target_link_libraries(${PROJECT_NAME} "${PHYSFS_LIBRARY}")
