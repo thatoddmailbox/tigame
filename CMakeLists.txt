@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.7)
 
 project(tigame)
 
-file(GLOB SOURCES src/*.cpp)
-file(GLOB EXTERNAL_SOURCES external/*.c)
+file(GLOB SOURCES ${CMAKE_CURRENT_LIST_DIR}/src/*.cpp)
+file(GLOB EXTERNAL_SOURCES ${CMAKE_CURRENT_LIST_DIR}/external/*.c)
 
-add_executable(${PROJECT_NAME} ${SOURCES} ${EXTERNAL_SOURCES} glad/src/glad.c)
-include_directories("src")
-include_directories("glad/include")
-include_directories("external")
+add_executable(${PROJECT_NAME} ${SOURCES} ${EXTERNAL_SOURCES} ${CMAKE_CURRENT_LIST_DIR}/glad/src/glad.c)
+include_directories("${CMAKE_CURRENT_LIST_DIR}/src")
+include_directories("${CMAKE_CURRENT_LIST_DIR}/glad/include")
+include_directories("${CMAKE_CURRENT_LIST_DIR}/external")
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
 	# glad requires linking against the dynamic linker (dl)
