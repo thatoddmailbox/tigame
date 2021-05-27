@@ -59,6 +59,11 @@ namespace tigame
 		return input_manager_;
 	}
 
+	void Game::AddComponent(const std::shared_ptr<GameComponent>& game_component)
+	{
+		game_components_.push_back(game_component);
+	}
+
 	void Game::SetScene(Scene * new_scene)
 	{
 		current_scene_ = new_scene;
@@ -112,6 +117,11 @@ namespace tigame
 			 * update
 			 */
 			input_manager_.Update();
+			for (std::shared_ptr<GameComponent>& game_component : game_components_)
+			{
+				// TODO: actually calculate delta time instead of assuming
+				game_component->Update(this, 1.0f / 60.0f);
+			}
 			if (current_scene_ != nullptr)
 			{
 				// TODO: actually calculate delta time instead of assuming

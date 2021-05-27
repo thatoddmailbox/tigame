@@ -14,6 +14,7 @@
 
 #include <physfs.h>
 
+#include "component.hpp"
 #include "input_manager.hpp"
 #include "scene.hpp"
 
@@ -26,6 +27,8 @@ namespace tigame
 		~Game();
 
 		InputManager& GetInputManager();
+
+		void AddComponent(const std::shared_ptr<GameComponent>& game_component);
 
 		void SetScene(Scene * new_scene);
 
@@ -40,6 +43,8 @@ namespace tigame
 
 		std::string organization_;
 		std::string app_name_;
+
+		std::vector<std::shared_ptr<GameComponent>> game_components_;
 	};
 }
 

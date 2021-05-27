@@ -13,6 +13,13 @@ namespace tigame
 		virtual void Start() = 0;
 		virtual void Update(tigame::Game *, tigame::Scene *, tigame::Object *, double dt) = 0;
 	};
+
+	class GameComponent
+	{
+	public:
+		virtual void Start() = 0;
+		virtual void Update(tigame::Game *, double dt) = 0;
+	};
 }
 
 #endif
