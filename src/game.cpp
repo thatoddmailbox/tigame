@@ -34,10 +34,22 @@ namespace tigame
 		SDL_setFramerate(&frame_manager_, 60);
 
 		input_manager_ = InputManager();
+
+		ImGui::CreateContext();
+		ImGuiIO& io = ImGui::GetIO(); (void)io;
+
+		ImGui::StyleColorsDark();
+
+		ImGui_ImplOpenGL3_Init();
+		ImGui_ImplSDL2_InitForOpenGL(window_, context);
 	}
 
 	Game::~Game()
 	{
+		ImGui_ImplSDL2_Shutdown();
+		ImGui_ImplOpenGL3_Shutdown();
+		ImGui::DestroyContext();
+
 		PHYSFS_deinit();
 		SDL_DestroyWindow(window_);
 	}
@@ -61,6 +73,10 @@ namespace tigame
 
 		while (!quit)
 		{
+			ImGui_ImplOpenGL3_NewFrame();
+			ImGui_ImplSDL2_NewFrame(window_);
+			ImGui::NewFrame();
+
 			input_manager_.EarlyUpdate();
 
 			/*
@@ -84,6 +100,7 @@ namespace tigame
 				}
 
 				input_manager_.ProcessEvent(&e);
+				ImGui_ImplSDL2_ProcessEvent(&e);
 			}
 
 			if (quit)
@@ -118,6 +135,12 @@ namespace tigame
 			{
 				current_scene_->Draw();
 			}
+
+			/*
+			 * gui
+			 */
+			ImGui::Render();
+			ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 			SDL_GL_SwapWindow(window_);
 			SDL_framerateDelay(&frame_manager_);
