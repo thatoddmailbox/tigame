@@ -112,7 +112,7 @@ namespace tigame
 				}
 
 				bool should_we_handle = true;
-				if (e.type == SDL_MOUSEWHEEL || e.type == SDL_MOUSEMOTION)
+				if (e.type == SDL_MOUSEWHEEL || e.type == SDL_MOUSEMOTION || e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP)
 				{
 					// it's mouse related, we should only handle it if imgui hasn't captured the mouse
 					if (io.WantCaptureMouse)
