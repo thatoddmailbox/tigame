@@ -112,7 +112,7 @@ int main(int argc, char * argv[])
 	tigame::Scene scene = tigame::Scene();
 	game.SetScene(&scene);
 
-	tigame::Camera camera = tigame::Camera(800, 600);
+	tigame::Camera camera = tigame::Camera("Editor Camera", 800, 600);
 	camera.SetPosition(8, 4, 8);
 	camera.LookAt(glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 	camera.AddComponent(std::make_shared<tigame::OrbitComponent>());
