@@ -62,7 +62,15 @@ class EditorComponent : public tigame::GameComponent
 			}
 
 			glm::vec3& scale = selected_object_->GetScale();
-			ImGui::Text("Scale: %f, %f, %f", scale.x, scale.y, scale.z);
+			float scale_float[3] = {
+				scale.x,
+				scale.y,
+				scale.z
+			};
+			if (ImGui::InputFloat3("Scale", scale_float))
+			{
+				selected_object_->SetScale(scale_float[0], scale_float[1], scale_float[2]);
+			}
 		}
 		else
 		{
