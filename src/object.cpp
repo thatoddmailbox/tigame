@@ -2,6 +2,16 @@
 
 namespace tigame
 {
+	Object::Object()
+	{
+		name_ = "Object";
+	}
+
+	Object::Object(const char * name)
+	{
+		name_ = std::string(name);
+	}
+
 	void Object::Update(Game * game, Scene * scene, float dt)
 	{
 		for (std::shared_ptr<Component>& component : components_)

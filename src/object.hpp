@@ -19,6 +19,9 @@ namespace tigame
 	class Object
 	{
 	public:
+		Object();
+		Object(const char * name);
+
 		virtual void Update(Game * game, Scene * scene, float dt);
 		void Draw(glm::mat4 * projection, glm::mat4 * view, glm::vec3 * camera_position, Light * light);
 
@@ -39,6 +42,8 @@ namespace tigame
 		Mesh * mesh = nullptr;
 
 	protected:
+		std::string name_;
+
 		glm::vec3 position_ = glm::vec3(0.0f, 0.0f, 0.0f);
 		glm::vec3 rotation_ = glm::vec3(0.0f, 0.0f, 0.0f);
 		glm::vec3 scale_ = glm::vec3(1.0f, 1.0f, 1.0f);
