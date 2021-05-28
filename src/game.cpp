@@ -84,9 +84,6 @@ namespace tigame
 
 		while (!quit)
 		{
-			ImGui_ImplOpenGL3_NewFrame();
-			ImGui_ImplSDL2_NewFrame(window_);
-			ImGui::NewFrame();
 			ImGuiIO& io = ImGui::GetIO(); (void)io;
 
 			input_manager_.EarlyUpdate();
@@ -140,6 +137,10 @@ namespace tigame
 			{
 				break;
 			}
+
+			ImGui_ImplOpenGL3_NewFrame();
+			ImGui_ImplSDL2_NewFrame(window_);
+			ImGui::NewFrame();
 
 			/*
 			 * update
