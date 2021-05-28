@@ -42,6 +42,11 @@ namespace tigame
 		}
 	}
 
+	const std::string& Object::GetName()
+	{
+		return name_;
+	}
+
 	glm::vec3& Object::GetPosition()
 	{
 		return position_;
