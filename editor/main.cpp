@@ -119,7 +119,7 @@ int main(int argc, char * argv[])
 	scene.AddObject(&camera);
 	scene.SetMainCamera(&camera);
 
-	tigame::Object thing = tigame::Object();
+	tigame::Object thing = tigame::Object("Box");
 	thing.SetPosition(0, 0, 0);
 	tigame::Mesh * box = tigame::MeshFactory::Box(&basic, 1, 1.25, 3);
 	thing.mesh = box;
