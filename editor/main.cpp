@@ -34,6 +34,17 @@ class EditorComponent : public tigame::GameComponent
 		}
 		ImGui::End();
 
+		ImGui::Begin("Properties");
+		if (selected_object_ != nullptr)
+		{
+			// TODO: something
+		}
+		else
+		{
+			ImGui::Text("No object selected.");
+		}
+		ImGui::End();
+
 		ImGui::ShowDemoWindow();
 	}
 };
