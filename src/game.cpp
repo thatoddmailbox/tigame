@@ -120,6 +120,14 @@ namespace tigame
 						should_we_handle = false;
 					}
 				}
+				if (e.type == SDL_KEYDOWN)
+				{
+					// it's keyboard related, we should only handle it if imgui hasn't captured the keyboard
+					if (io.WantCaptureKeyboard)
+					{
+						should_we_handle = false;
+					}
+				}
 
 				if (should_we_handle)
 				{
