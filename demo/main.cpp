@@ -16,7 +16,7 @@ class SampleCameraComponent : public tigame::Component
 
 	}
 
-	void Update(tigame::Scene * scene, tigame::Object * object, double dt)
+	void Update(tigame::Game * game, tigame::Scene * scene, tigame::Object * object, double dt)
 	{
 		object->SetPosition(8 * cos(time), 4, 8 * sin(time));
 		object->LookAt(glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
