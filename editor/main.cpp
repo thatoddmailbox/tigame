@@ -37,7 +37,7 @@ class EditorComponent : public tigame::GameComponent
 		ImGui::Begin("Properties");
 		if (selected_object_ != nullptr)
 		{
-			// TODO: something
+			ImGui::Text("Name: %s", selected_object_->GetName().c_str());
 		}
 		else
 		{
