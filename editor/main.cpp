@@ -40,7 +40,15 @@ class EditorComponent : public tigame::GameComponent
 			ImGui::Text("Name: %s", selected_object_->GetName().c_str());
 
 			glm::vec3& position = selected_object_->GetPosition();
-			ImGui::Text("Position: %f, %f, %f", position.x, position.y, position.z);
+			float position_float[3] = {
+				position.x,
+				position.y,
+				position.z
+			};
+			if (ImGui::InputFloat3("Position", position_float))
+			{
+				selected_object_->SetPosition(position_float[0], position_float[1], position_float[2]);
+			}
 
 			glm::vec3& rotation = selected_object_->GetRotation();
 			ImGui::Text("Rotation: %f, %f, %f", rotation.x, rotation.y, rotation.z);
