@@ -26,7 +26,7 @@ class EditorComponent : public tigame::GameComponent
 			{
 				flags |= ImGuiTreeNodeFlags_Selected;
 			}
-			ImGui::TreeNodeEx("Object", flags);
+			ImGui::TreeNodeEx(object->GetName().c_str(), flags);
 			if (ImGui::IsItemClicked())
 			{
 				selected_object_ = object;
