@@ -21,6 +21,7 @@ namespace tigame
 	{
 	public:
 		Camera(size_t viewport_width, size_t viewport_height);
+		Camera(const char * name, size_t viewport_width, size_t viewport_height);
 
 		void Update(Game * game, Scene * scene, float dt) override;
 

@@ -7,6 +7,11 @@ namespace tigame
 		projection_ = glm::perspective(glm::radians(45.0f), ((float) viewport_width) / ((float) viewport_height), 0.1f, 100.0f);
 	}
 
+	Camera::Camera(const char * name, size_t viewport_width, size_t viewport_height) : Object(name)
+	{
+		projection_ = glm::perspective(glm::radians(45.0f), ((float) viewport_width) / ((float) viewport_height), 0.1f, 100.0f);
+	}
+
 	void Camera::Update(Game * game, Scene * scene, float dt)
 	{
 		Object::Update(game, scene, dt);
