@@ -38,6 +38,8 @@ class EditorComponent : public tigame::GameComponent
 		if (selected_object_ != nullptr)
 		{
 			ImGui::Text("Name: %s", selected_object_->GetName().c_str());
+			glm::vec3& position = selected_object_->GetPosition();
+			ImGui::Text("Position: %f, %f, %f", position.x, position.y, position.z);
 		}
 		else
 		{
