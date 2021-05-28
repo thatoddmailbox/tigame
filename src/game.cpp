@@ -87,6 +87,7 @@ namespace tigame
 			ImGui_ImplOpenGL3_NewFrame();
 			ImGui_ImplSDL2_NewFrame(window_);
 			ImGui::NewFrame();
+			ImGuiIO& io = ImGui::GetIO(); (void)io;
 
 			input_manager_.EarlyUpdate();
 
@@ -110,7 +111,20 @@ namespace tigame
 					}
 				}
 
-				input_manager_.ProcessEvent(&e);
+				bool should_we_handle = true;
+				if (e.type == SDL_MOUSEWHEEL || e.type == SDL_MOUSEMOTION)
+				{
+					// it's mouse related, we should only handle it if imgui hasn't captured the mouse
+					if (io.WantCaptureMouse)
+					{
+						should_we_handle = false;
+					}
+				}
+
+				if (should_we_handle)
+				{
+					input_manager_.ProcessEvent(&e);
+				}
 				ImGui_ImplSDL2_ProcessEvent(&e);
 			}
 
