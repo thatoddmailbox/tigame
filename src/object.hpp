@@ -25,6 +25,8 @@ namespace tigame
 		virtual void Update(Game * game, Scene * scene, float dt);
 		void Draw(glm::mat4 * projection, glm::mat4 * view, glm::vec3 * camera_position, Light * light);
 
+		const std::string& GetName();
+
 		glm::vec3& GetPosition();
 		glm::vec3& GetRotation();
 		glm::vec3& GetScale();
