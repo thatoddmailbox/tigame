@@ -51,7 +51,15 @@ class EditorComponent : public tigame::GameComponent
 			}
 
 			glm::vec3& rotation = selected_object_->GetRotation();
-			ImGui::Text("Rotation: %f, %f, %f", rotation.x, rotation.y, rotation.z);
+			float rotation_float[3] = {
+				rotation.x,
+				rotation.y,
+				rotation.z
+			};
+			if (ImGui::InputFloat3("Rotation", rotation_float))
+			{
+				selected_object_->SetRotation(rotation_float[0], rotation_float[1], rotation_float[2]);
+			}
 
 			glm::vec3& scale = selected_object_->GetScale();
 			ImGui::Text("Scale: %f, %f, %f", scale.x, scale.y, scale.z);
