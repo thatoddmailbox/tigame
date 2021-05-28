@@ -1,5 +1,7 @@
 #include "input_manager.hpp"
 
+#include <imgui.h>
+
 namespace tigame
 {
 	double InputManager::GetAxis(InputAxis axis)
@@ -45,6 +47,14 @@ namespace tigame
 
 	void InputManager::Update()
 	{
+		ImGuiIO& io = ImGui::GetIO(); (void)io;
+
+		if (io.WantCaptureMouse)
+		{
+			// we're just doing mouse stuff here, so get out
+			return;
+		}
+
 		int mouse_x, mouse_y;
 		uint32_t mouse_state = SDL_GetMouseState(&mouse_x, &mouse_y);
 		bool mouse_down = (mouse_state & SDL_BUTTON(SDL_BUTTON_LEFT) != 0);
