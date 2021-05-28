@@ -2,7 +2,7 @@
 
 namespace tigame
 {
-	Camera::Camera(size_t viewport_width, size_t viewport_height)
+	Camera::Camera(size_t viewport_width, size_t viewport_height) : Object("Camera")
 	{
 		projection_ = glm::perspective(glm::radians(45.0f), ((float) viewport_width) / ((float) viewport_height), 0.1f, 100.0f);
 	}
