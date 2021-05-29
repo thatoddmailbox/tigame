@@ -173,6 +173,12 @@ int main(int argc, char * argv[])
 	thing.mesh = box;
 	scene.AddObject(&thing);
 
+	tigame::Object thing2 = tigame::Object("Box 2");
+	thing2.SetPosition(3, 0, 0);
+	tigame::Mesh * box2 = tigame::MeshFactory::Box(&basic, 1, 4, 3);
+	thing2.mesh = box2;
+	scene.AddObject(&thing2);
+
 	std::shared_ptr<EditorComponent> editor_component = std::make_shared<EditorComponent>();
 	game.AddComponent(editor_component);
 
