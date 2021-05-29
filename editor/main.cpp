@@ -82,7 +82,7 @@ class EditorComponent : public tigame::GameComponent
 		}
 		ImGui::End();
 
-		ImGui::ShowDemoWindow();
+		// ImGui::ShowDemoWindow();
 	}
 };
 
