@@ -157,6 +157,8 @@ int main(int argc, char * argv[])
 		"}\n"
 	);
 
+	// TODO: we shouldn't need to have a texture here?
+	// TODO: an actual material/shader system that allows not having a texture
 	tigame::Texture blank = tigame::Texture("blank.png");
 
 	tigame::Scene scene = tigame::Scene();
