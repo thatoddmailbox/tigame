@@ -174,7 +174,7 @@ int main(int argc, char * argv[])
 	scene.AddObject(&thing);
 
 	tigame::Object thing2 = tigame::Object("Box 2");
-	thing2.SetPosition(0, 3, 0);
+	thing2.SetPosition(0, 2, 0);
 	tigame::Mesh * box2 = tigame::MeshFactory::Box(&basic, 2, 1, 1);
 	thing2.mesh = box2;
 	scene.AddObject(&thing2);
