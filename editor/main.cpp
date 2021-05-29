@@ -38,7 +38,7 @@ class EditorComponent : public tigame::GameComponent
 
 		ImGui::Begin("Properties");
 		ImGui::SetWindowSize(ImVec2(250, 150));
-		ImGui::SetWindowPos(ImVec2(300, 50));
+		ImGui::SetWindowPos(ImVec2(500, 50));
 		if (selected_object_ != nullptr)
 		{
 			ImGui::Text("Name: %s", selected_object_->GetName().c_str());
