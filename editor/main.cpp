@@ -172,6 +172,7 @@ int main(int argc, char * argv[])
 	tigame::Object thing = tigame::Object("Box");
 	thing.SetPosition(0, 0, 0);
 	tigame::Mesh * box = tigame::MeshFactory::Box(&basic, 1, 1.25, 3);
+	box->SetTexture(&blank);
 	thing.mesh = box;
 	scene.AddObject(&thing);
 
