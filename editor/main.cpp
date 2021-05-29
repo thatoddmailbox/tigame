@@ -20,7 +20,7 @@ class EditorComponent : public tigame::GameComponent
 
 		ImGui::Begin("Scene");
 		ImGui::SetWindowSize(ImVec2(150, 150));
-		ImGui::SetWindowPos(ImVec2(100, 50));
+		ImGui::SetWindowPos(ImVec2(50, 50));
 		for (tigame::Object * object : current_scene->GetObjects())
 		{
 			ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
