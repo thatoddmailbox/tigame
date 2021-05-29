@@ -157,6 +157,8 @@ int main(int argc, char * argv[])
 		"}\n"
 	);
 
+	tigame::Texture blank = tigame::Texture("blank.png");
+
 	tigame::Scene scene = tigame::Scene();
 	game.SetScene(&scene);
 
