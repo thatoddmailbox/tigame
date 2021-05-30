@@ -43,6 +43,10 @@ class EditorComponent : public tigame::GameComponent
 		ImGui::SetWindowPos(ImVec2(io.DisplaySize.x - 250, 0));
 		if (selected_object_ != nullptr)
 		{
+			// TODO: this sucks
+			// this should use the thing where you can use std::string with imgui's text
+			// copying something every frame is bad
+			// this is only the editor though, so eh
 			static char name_buffer[32];
 			strncpy(name_buffer, selected_object_->GetName().c_str(), 32);
 			name_buffer[31] = '\0';
