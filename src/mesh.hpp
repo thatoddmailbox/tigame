@@ -4,6 +4,8 @@
 #include <cstddef>
 #include <cstdlib>
 
+#include <memory>
+
 #include <glad/glad.h>
 
 #include <glm/glm.hpp>
@@ -39,7 +41,7 @@ namespace tigame
 	class Mesh
 	{
 	public:
-		Mesh(Shader * shader, VertexLayout layout, float * vertices, size_t vertices_size, size_t vertices_count);
+		Mesh(std::shared_ptr<Shader> shader, VertexLayout layout, float * vertices, size_t vertices_size, size_t vertices_count);
 		~Mesh();
 
 		void SetTexture(Texture * texture);
@@ -49,7 +51,7 @@ namespace tigame
 		MaterialProperties material_properties;
 
 	private:
-		Shader * shader_;
+		std::shared_ptr<Shader> shader_;
 		VertexLayout layout_;
 		float * vertices_;
 		size_t vertices_size_;

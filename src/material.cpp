@@ -2,14 +2,14 @@
 
 namespace tigame
 {
-	Shader * Material::basic_ = nullptr;
+	std::shared_ptr<Shader> Material::basic_ = nullptr;
 
-	Shader * Material::Basic()
+	std::shared_ptr<Shader> Material::Basic()
 	{
 		// TODO: handle cleanup better
 		if (basic_ == nullptr)
 		{
-			basic_ = new Shader(
+			basic_ = std::make_shared<Shader>(
 				"#version 330 core\n"
 				"layout (location = 0) in vec3 aPos;\n"
 				"layout (location = 1) in vec3 aNormal;\n"

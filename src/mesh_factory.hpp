@@ -24,8 +24,8 @@ namespace tigame
 	class MeshFactory
 	{
 	public:
-		static Mesh * Box(Shader * shader, float width, float length, float depth);
-		static Mesh * OBJ(Shader * shader, const char * path);
+		static Mesh * Box(std::shared_ptr<Shader> shader, float width, float length, float depth);
+		static Mesh * OBJ(std::shared_ptr<Shader> shader, const char * path);
 
 	private:
 		MeshFactory() {}

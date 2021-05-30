@@ -2,7 +2,7 @@
 
 namespace tigame
 {
-	Mesh * MeshFactory::Box(Shader * shader, float width, float height, float depth)
+	Mesh * MeshFactory::Box(std::shared_ptr<Shader> shader, float width, float height, float depth)
 	{
 		size_t vertices_count = 36;
 		size_t vertices_stride = 8;
@@ -378,7 +378,7 @@ namespace tigame
 		float v;
 	} vertex;
 
-	Mesh * MeshFactory::OBJ(Shader * shader, const char * path)
+	Mesh * MeshFactory::OBJ(std::shared_ptr<Shader> shader, const char * path)
 	{
 		PHYSFS_File * file = PHYSFS_openRead(path);
 

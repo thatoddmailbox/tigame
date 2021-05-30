@@ -3,7 +3,7 @@
 #include <cstdio>
 namespace tigame
 {
-	Mesh::Mesh(Shader * shader, VertexLayout layout, float * vertices, size_t vertices_size, size_t vertices_count) :
+	Mesh::Mesh(std::shared_ptr<Shader> shader, VertexLayout layout, float * vertices, size_t vertices_size, size_t vertices_count) :
 		shader_(shader), layout_(layout), vertices_(vertices), vertices_size_(vertices_size), vertices_count_(vertices_count)
 	{
 		texture_ = nullptr;

@@ -1,6 +1,8 @@
 #ifndef TIGAME_MATERIAL_HPP
 #define TIGAME_MATERIAL_HPP
 
+#include <memory>
+
 #include "shader.hpp"
 
 namespace tigame
@@ -8,10 +10,10 @@ namespace tigame
 	class Material
 	{
 	public:
-		static Shader * Basic();
+		static std::shared_ptr<Shader> Basic();
 
 	private:
-		static Shader * basic_;
+		static std::shared_ptr<Shader> basic_;
 	};
 }
 
