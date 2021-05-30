@@ -24,6 +24,17 @@ class EditorComponent : public tigame::GameComponent
 		ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_NoResize);
 		ImGui::SetWindowSize(ImVec2(150, 150));
 		ImGui::SetWindowPos(ImVec2(0, 0));
+
+		if (ImGui::Button("+ Add"))
+		{
+			// TODO: clean up the object?
+			tigame::Object * thing = new tigame::Object("Box");
+			thing->SetPosition(0, 0, 0);
+			tigame::Mesh * box = tigame::MeshFactory::Box(tigame::Material::Basic(), 1, 1, 1);
+			thing->mesh = box;
+			current_scene->AddObject(thing);
+		}
+
 		for (tigame::Object * object : current_scene->GetObjects())
 		{
 			ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
@@ -37,6 +48,7 @@ class EditorComponent : public tigame::GameComponent
 				selected_object_ = object;
 			}
 		}
+
 		ImGui::End();
 
 		ImGui::Begin("Properties", nullptr, ImGuiWindowFlags_NoResize);
