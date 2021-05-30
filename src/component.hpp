@@ -11,7 +11,7 @@ namespace tigame
 	{
 	public:
 		virtual void Start() = 0;
-		virtual void Update(tigame::Game *, tigame::Scene *, tigame::Object *, double dt) = 0;
+		virtual void Update(Game *, Scene *, Object *, double dt) = 0;
 	};
 
 	class GameComponent
