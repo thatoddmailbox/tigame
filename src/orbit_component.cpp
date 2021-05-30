@@ -15,7 +15,7 @@ namespace tigame
 
 	}
 
-	void OrbitComponent::Update(tigame::Game * game, tigame::Scene * scene, tigame::Object * object, double dt)
+	void OrbitComponent::Update(Game * game, Scene * scene, Object * object, double dt)
 	{
 		double horizontal = game->GetInputManager().GetAxis(InputAxis::Horizontal);
 		double vertical = game->GetInputManager().GetAxis(InputAxis::Vertical);
