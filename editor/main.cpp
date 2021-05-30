@@ -18,7 +18,7 @@ class EditorComponent : public tigame::GameComponent
 		// TODO: update is probably not the best place to do this?
 		tigame::Scene * current_scene = game->GetScene();
 
-		ImGui::Begin("Scene", nullptr);
+		ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_NoResize);
 		ImGui::SetWindowSize(ImVec2(150, 150));
 		ImGui::SetWindowPos(ImVec2(50, 50));
 		for (tigame::Object * object : current_scene->GetObjects())
