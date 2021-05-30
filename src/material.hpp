@@ -9,6 +9,9 @@ namespace tigame
 	{
 	public:
 		static Shader * Basic();
+
+	private:
+		static Shader * basic_;
 	};
 }
 
