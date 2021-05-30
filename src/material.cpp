@@ -9,7 +9,7 @@ namespace tigame
 		// TODO: handle cleanup better
 		if (basic_ == nullptr)
 		{
-			basic_ = new tigame::Shader(
+			basic_ = new Shader(
 				"#version 330 core\n"
 				"layout (location = 0) in vec3 aPos;\n"
 				"layout (location = 1) in vec3 aNormal;\n"
