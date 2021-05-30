@@ -47,6 +47,11 @@ namespace tigame
 		return name_;
 	}
 
+	void Object::SetName(const char * name)
+	{
+		name_ = std::string(name);
+	}
+
 	glm::vec3& Object::GetPosition()
 	{
 		return position_;
