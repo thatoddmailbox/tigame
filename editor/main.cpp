@@ -18,6 +18,8 @@ class EditorComponent : public tigame::GameComponent
 		// TODO: update is probably not the best place to do this?
 		tigame::Scene * current_scene = game->GetScene();
 
+		ImGuiIO& io = ImGui::GetIO(); (void)io;
+
 		ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_NoResize);
 		ImGui::SetWindowSize(ImVec2(150, 150));
 		ImGui::SetWindowPos(ImVec2(0, 0));
@@ -38,7 +40,7 @@ class EditorComponent : public tigame::GameComponent
 
 		ImGui::Begin("Properties", nullptr, ImGuiWindowFlags_NoResize);
 		ImGui::SetWindowSize(ImVec2(250, 150));
-		ImGui::SetWindowPos(ImVec2(550, 0));
+		ImGui::SetWindowPos(ImVec2(io.DisplaySize.x - 250, 0));
 		if (selected_object_ != nullptr)
 		{
 			ImGui::Text("Name: %s", selected_object_->GetName().c_str());
