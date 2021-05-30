@@ -52,10 +52,10 @@ namespace tigame
 			// TODO: handle
 		}
 
-		material.Ambient = glm::vec4(0.0215f, 0.1745f, 0.0215f, 1.0f);
-		material.Diffuse = glm::vec4(0.07568f, 0.61424f, 0.07568f, 1.0f);
-		material.Specular = glm::vec4(0.633f, 0.727811, 0.633f, 1.0f);
-		material.Shininess = 0.6f;
+		material_properties.Ambient = glm::vec4(0.0215f, 0.1745f, 0.0215f, 1.0f);
+		material_properties.Diffuse = glm::vec4(0.07568f, 0.61424f, 0.07568f, 1.0f);
+		material_properties.Specular = glm::vec4(0.633f, 0.727811, 0.633f, 1.0f);
+		material_properties.Shininess = 0.6f;
 	}
 
 	Mesh::~Mesh()
@@ -79,10 +79,10 @@ namespace tigame
 
 		shader_->SetUniformVector3("camera_pos", camera_position);
 
-		shader_->SetUniformVector4("material.ambient", &material.Ambient);
-		shader_->SetUniformVector4("material.diffuse", &material.Diffuse);
-		shader_->SetUniformVector4("material.specular", &material.Specular);
-		shader_->SetUniformFloat("material.shininess", material.Shininess);
+		shader_->SetUniformVector4("material.ambient", &material_properties.Ambient);
+		shader_->SetUniformVector4("material.diffuse", &material_properties.Diffuse);
+		shader_->SetUniformVector4("material.specular", &material_properties.Specular);
+		shader_->SetUniformFloat("material.shininess", material_properties.Shininess);
 
 		shader_->SetUniformVector3("light.position", &light->Position);
 		shader_->SetUniformVector4("light.color", &light->Color);

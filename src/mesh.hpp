@@ -17,7 +17,7 @@ namespace tigame
 		XYZUV
 	};
 
-	struct Material
+	struct MaterialProperties
 	{
 		glm::vec4 Ambient;
 		glm::vec4 Diffuse;
@@ -46,7 +46,7 @@ namespace tigame
 
 		void Draw(glm::mat4 * projection, glm::mat4 * view, glm::mat4 * model, glm::mat3 * normal, glm::vec3 * camera_position, Light * light);
 
-		Material material;
+		MaterialProperties material_properties;
 
 	private:
 		Shader * shader_;
