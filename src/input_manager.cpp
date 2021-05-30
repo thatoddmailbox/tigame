@@ -22,6 +22,7 @@ namespace tigame
 		{
 			return mouse_scroll_y_;
 		}
+		return 0;
 	}
 
 	void InputManager::EarlyUpdate()
