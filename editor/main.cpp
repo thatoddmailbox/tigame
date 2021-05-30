@@ -36,7 +36,7 @@ class EditorComponent : public tigame::GameComponent
 		}
 		ImGui::End();
 
-		ImGui::Begin("Properties");
+		ImGui::Begin("Properties", nullptr);
 		ImGui::SetWindowSize(ImVec2(250, 150));
 		ImGui::SetWindowPos(ImVec2(500, 50));
 		if (selected_object_ != nullptr)
