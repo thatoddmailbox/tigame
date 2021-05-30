@@ -22,7 +22,7 @@ class EditorComponent : public tigame::GameComponent
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 
 		ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_NoResize);
-		ImGui::SetWindowSize(ImVec2(150, 150));
+		ImGui::SetWindowSize(ImVec2(150, 0));
 		ImGui::SetWindowPos(ImVec2(0, 0));
 
 		if (ImGui::Button("+ Add"))
