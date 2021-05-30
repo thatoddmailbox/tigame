@@ -43,7 +43,14 @@ class EditorComponent : public tigame::GameComponent
 		ImGui::SetWindowPos(ImVec2(io.DisplaySize.x - 250, 0));
 		if (selected_object_ != nullptr)
 		{
-			ImGui::Text("Name: %s", selected_object_->GetName().c_str());
+			static char name_buffer[32];
+			strncpy(name_buffer, selected_object_->GetName().c_str(), 32);
+			name_buffer[31] = '\0';
+
+			if (ImGui::InputText("Name", name_buffer, 32))
+			{
+				selected_object_->SetName(name_buffer);
+			}
 
 			glm::vec3& position = selected_object_->GetPosition();
 			float position_float[3] = {
