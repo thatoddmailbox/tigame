@@ -9,7 +9,7 @@ namespace tigame
 	{
 	public:
 		void Start();
-		void Update(tigame::Game *, tigame::Scene *, tigame::Object *, double dt);
+		void Update(Game *, Scene *, Object *, double dt);
 
 	private:
 		float yaw_ = 0.0f;
