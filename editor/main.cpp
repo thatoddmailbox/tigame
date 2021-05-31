@@ -21,6 +21,16 @@ class EditorComponent : public tigame::GameComponent
 
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 
+		if (ImGui::BeginMainMenuBar())
+		{
+			if (ImGui::BeginMenu("File"))
+			{
+				if (ImGui::MenuItem("Some menu item")) {}
+				ImGui::EndMenu();
+			}
+			ImGui::EndMainMenuBar();
+		}
+
 		ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_NoResize);
 		ImGui::SetWindowSize(ImVec2(150, 0));
 		ImGui::SetWindowPos(ImVec2(0, 0));
