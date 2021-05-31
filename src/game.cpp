@@ -60,6 +60,11 @@ namespace tigame
 		return input_manager_;
 	}
 
+	void Game::RequestQuit()
+	{
+		quit_ = true;
+	}
+
 	void Game::AddComponent(const std::shared_ptr<GameComponent>& game_component)
 	{
 		game_components_.push_back(game_component);

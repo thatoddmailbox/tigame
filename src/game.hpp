@@ -28,6 +28,8 @@ namespace tigame
 
 		InputManager& GetInputManager();
 
+		void RequestQuit();
+
 		void AddComponent(const std::shared_ptr<GameComponent>& game_component);
 
 		Scene * GetScene();
