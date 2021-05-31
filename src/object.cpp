@@ -141,6 +141,11 @@ namespace tigame
 		location_dirty_ = true;
 	}
 
+	const std::vector<std::shared_ptr<Component>>& Object::GetComponents()
+	{
+		return components_;
+	}
+
 	void Object::AddComponent(const std::shared_ptr<Component>& component)
 	{
 		components_.push_back(component);
