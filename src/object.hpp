@@ -40,6 +40,7 @@ namespace tigame
 
 		void LookAt(glm::vec3 target, glm::vec3 up);
 
+		const std::vector<std::shared_ptr<Component>>& GetComponents();
 		void AddComponent(const std::shared_ptr<Component>& component);
 
 		Mesh * mesh = nullptr;
