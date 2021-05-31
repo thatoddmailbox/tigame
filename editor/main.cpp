@@ -66,7 +66,7 @@ class EditorComponent : public tigame::GameComponent
 
 		ImGui::Begin("Properties", nullptr, ImGuiWindowFlags_NoResize);
 		ImGui::SetWindowSize(ImVec2(250, 0));
-		ImGui::SetWindowPos(ImVec2(io.DisplaySize.x - 250, 0));
+		ImGui::SetWindowPos(ImVec2(io.DisplaySize.x - 250, 18));
 		if (selected_object_ != nullptr)
 		{
 			// TODO: this sucks
