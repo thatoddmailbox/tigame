@@ -77,12 +77,12 @@ namespace tigame
 
 	void Game::Run()
 	{
-		bool quit = false;
+		quit_ = false;
 		SDL_Event e;
 
 		glEnable(GL_DEPTH_TEST);
 
-		while (!quit)
+		while (!quit_)
 		{
 			ImGuiIO& io = ImGui::GetIO(); (void)io;
 
@@ -95,7 +95,7 @@ namespace tigame
 			{
 				if (e.type == SDL_QUIT)
 				{
-					quit = true;
+					quit_ = true;
 					break;
 				}
 
@@ -103,7 +103,7 @@ namespace tigame
 				{
 					if (e.key.keysym.sym == SDLK_ESCAPE)
 					{
-						quit = true;
+						quit_ = true;
 						break;
 					}
 				}
@@ -133,7 +133,7 @@ namespace tigame
 				ImGui_ImplSDL2_ProcessEvent(&e);
 			}
 
-			if (quit)
+			if (quit_)
 			{
 				break;
 			}

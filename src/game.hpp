@@ -36,6 +36,8 @@ namespace tigame
 		void Run();
 
 	private:
+		bool quit_ = false;
+
 		FPSmanager frame_manager_;
 		SDL_Window * window_;
 		Scene * current_scene_ = nullptr;
