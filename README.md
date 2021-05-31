@@ -31,4 +31,16 @@ Please note that these instructions have been only tested on Linux. They should 
 * `make`
 
 ## Project setup
-TODO
+To create a new project using tigame, first make a new folder.
+Then create a CMakeLists.txt file with the following contents:
+
+```
+cmake_minimum_required(VERSION 3.7)
+
+project(my-cool-game)
+
+file(GLOB GAME_SOURCES *.cpp)
+include("PATH_TO_TIGAME/CMakeLists.txt")
+```
+
+You must change `PATH_TO_TIGAME` so that the include path points to tigame's CMakeLists.txt file. You can alos change `my-cool-game` to an identifier for your game.
