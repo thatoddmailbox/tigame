@@ -3,7 +3,7 @@
 
 A tiny 3D game engine, still a work in progress. Uses C++, the SDL2 library, PhysicsFS, and OpenGL.
 
-Currently, it can display a 3D scene with various objects and some simplistic lighting, load meshes for those objects from an OBJ file, and load textures for those meshes from PNG files. You can also attach components to those objects to do various things, such as look around the scene with mouse input. There's also a scene editor.
+Currently, it can display a 3D scene with various objects and some simplistic lighting, load meshes for those objects from an OBJ file, and load textures for those meshes from PNG files. You can also attach components to those objects to do various things, such as look around the scene with mouse input. There's also a (work-in-progress) scene editor.
 
 ## Repo structure
 * `cmake` - This folder contains files used for the CMake build system.
