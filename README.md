@@ -29,3 +29,6 @@ Please note that these instructions have been only tested on Linux. They should 
 * `mkdir build && cd build`
 * `cmake ..`
 * `make`
+
+## Project setup
+TODO
