@@ -25,7 +25,10 @@ class EditorComponent : public tigame::GameComponent
 		{
 			if (ImGui::BeginMenu("File"))
 			{
-				if (ImGui::MenuItem("Some menu item")) {}
+				if (ImGui::MenuItem("Quit"))
+				{
+					game->RequestQuit();
+				}
 				ImGui::EndMenu();
 			}
 			ImGui::EndMainMenuBar();
