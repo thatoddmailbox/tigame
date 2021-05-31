@@ -34,7 +34,7 @@ Please note that these instructions have been only tested on Linux. They should 
 To create a new project using tigame, first make a new folder.
 Then create a CMakeLists.txt file with the following contents:
 
-```
+```cmake
 cmake_minimum_required(VERSION 3.7)
 
 project(my-cool-game)
