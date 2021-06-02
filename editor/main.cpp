@@ -3,7 +3,8 @@
 #include "component.hpp"
 #include "material.hpp"
 #include "mesh_factory.hpp"
-#include "components/orbit_component.hpp"
+
+#include "components/orbit_controls.hpp"
 
 class EditorComponent : public tigame::GameComponent
 {
