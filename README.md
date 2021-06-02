@@ -38,7 +38,7 @@ You must change `PATH_TO_TIGAME` so that the include path points to tigame's CMa
 
 Once you've done that, create a `main.cpp` file. (you can look at the demo to see what the structure should be) Then, follow the "Build instructions" section (above) to compile your game.
 
-By default, all `.cpp` files in the source folder will be included in the build. You can change this by modifying the `GAME_SOURCES` CMake variable in the CMakeLists.txt files.
+By default, all `.cpp` files in your game's source folder will be included in the build. You can change this by modifying the `GAME_SOURCES` CMake variable in the CMakeLists.txt files.
 
 ## Repo structure
 * `cmake` - This folder contains files used for the CMake build system.
