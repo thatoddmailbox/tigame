@@ -5,7 +5,7 @@
 #include "mesh_factory.hpp"
 #include "texture.hpp"
 
-#include "components/orbit_component.hpp"
+#include "components/orbit_controls.hpp"
 
 #include <cmath>
 
