@@ -1,4 +1,4 @@
-#include "orbit_component.hpp"
+#include "orbit_controls.hpp"
 
 #include <cmath>
 #include <cstdint>
