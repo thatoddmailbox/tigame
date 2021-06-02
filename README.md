@@ -11,7 +11,7 @@ If you have SDL2 or PhysicsFS installed in a non-standard location, set the `SDL
 Please note that these instructions have been only tested on Linux. They should probably work on macOS, and potentially Windows with some modifications?
 
 * Install CMake
-* Get Bullet physics engine (tested with [version 3.08](https://github.com/bulletphysics/bullet3/releases/tag/3.08)), follow build instructions for your operating system.
+* Get Bullet physics engine (tested with [version 3.09](https://github.com/bulletphysics/bullet3/releases/tag/3.09)), follow build instructions for your operating system.
 * Install libpng and development headers (on most Linux distros, this will already be included)
 * Install SDL2 and development headers
 * Install [PhysicsFS](https://www.icculus.org/physfs/)
