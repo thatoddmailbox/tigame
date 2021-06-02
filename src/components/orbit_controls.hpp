@@ -5,7 +5,7 @@
 
 namespace tigame
 {
-	class OrbitComponent : public Component
+	class OrbitControlsComponent : public Component
 	{
 	public:
 		void Start();

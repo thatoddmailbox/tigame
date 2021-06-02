@@ -10,12 +10,12 @@
 
 namespace tigame
 {
-	void OrbitComponent::Start()
+	void OrbitControlsComponent::Start()
 	{
 
 	}
 
-	void OrbitComponent::Update(Game * game, Scene * scene, Object * object, double dt)
+	void OrbitControlsComponent::Update(Game * game, Scene * scene, Object * object, double dt)
 	{
 		double horizontal = game->GetInputManager().GetAxis(InputAxis::Horizontal);
 		double vertical = game->GetInputManager().GetAxis(InputAxis::Vertical);
