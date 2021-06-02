@@ -3,8 +3,9 @@
 #include "component.hpp"
 #include "material.hpp"
 #include "mesh_factory.hpp"
-#include "orbit_component.hpp"
 #include "texture.hpp"
+
+#include "components/orbit_component.hpp"
 
 #include <cmath>
 
