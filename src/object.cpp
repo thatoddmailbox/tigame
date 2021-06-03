@@ -24,7 +24,7 @@ namespace tigame
 	{
 		if (location_dirty_)
 		{
-			UpdateMatrices();
+			UpdateMatrices(nullptr);
 		}
 
 		if (mesh != nullptr)
@@ -142,7 +142,7 @@ namespace tigame
 		components_.push_back(component);
 	}
 
-	void Object::UpdateMatrices()
+	void Object::UpdateMatrices(glm::mat4 * parent)
 	{
 		model_ = glm::mat4(1.0f);
 		model_ = glm::translate(model_, position_);

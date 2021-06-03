@@ -46,7 +46,7 @@ namespace tigame
 		Mesh * mesh = nullptr;
 
 	protected:
-		void UpdateMatrices();
+		void UpdateMatrices(glm::mat4 * parent);
 
 		std::string name_;
 
