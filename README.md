@@ -15,7 +15,7 @@ Please note that these instructions have been only tested on Linux. They should 
 * Install libpng and development headers (on most Linux distros, this will already be included)
 * Install SDL2 and development headers
 * Install [PhysicsFS](https://www.icculus.org/physfs/)
-* `cd` into a tigame project folder (such as `editor` or `demo`)
+* `cd` into a tigame project folder (such as `editor/` or `demo`)
 * `mkdir build && cd build`
 * `cmake ..`
 * `make`
