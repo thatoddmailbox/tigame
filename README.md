@@ -34,7 +34,7 @@ file(GLOB GAME_SOURCES *.cpp)
 include("PATH_TO_TIGAME/CMakeLists.txt")
 ```
 
-You must change `PATH_TO_TIGAME` so that the include path points to tigame's CMakeLists.txt file. You can also change `my-cool-game` to an identifier for your game.
+You must change `PATH_TO_TIGAME` so that the `PATH_TO_TIGAME/CMakeLists.txt` points to tigame's CMakeLists.txt file. You can also change `my-cool-game` to an identifier for your game.
 
 Once you've done that, create a `main.cpp` file. (you can look at the demo to see what the structure should be) Then, follow the "Build instructions" section (above) to compile your game.
 
