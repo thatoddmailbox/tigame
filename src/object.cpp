@@ -144,7 +144,14 @@ namespace tigame
 
 	void Object::UpdateMatrices(glm::mat4 * parent)
 	{
-		model_ = glm::mat4(1.0f);
+		if (parent != nullptr)
+		{
+			model_ = *parent;
+		}
+		else
+		{
+			model_ = glm::mat4(1.0f);
+		}
 		model_ = glm::translate(model_, position_);
 		model_ = glm::rotate(model_, glm::radians(rotation_.x), glm::vec3(1.0f, 0.0f, 0.0f));
 		model_ = glm::rotate(model_, glm::radians(rotation_.y), glm::vec3(0.0f, 1.0f, 0.0f));
