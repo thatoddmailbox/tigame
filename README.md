@@ -41,7 +41,7 @@ Once you've done that, create a `main.cpp` file. (you can look at the demo to se
 By default, all `.cpp` files in your game's source folder will be included in the build. You can change this by modifying the `GAME_SOURCES` CMake variable in the CMakeLists.txt file.
 
 ## Concepts
-The main idea is that you set up a `tigame::Game` object and then call its `Run` function, which takes over control flow. The game object has an active `tigame::Scene`, which is what is displayed to the user.
+The main idea is that you set up a `tigame::Game` object and then call its `Run()` function, which takes over control flow. The game object has an active `tigame::Scene`, which is what is displayed to the user.
 
 Within a `Scene` is one or more `tigame::Object`s. One (or more) of these `Object`s must be a `Camera`, and you can use the `Scene`'s `SetMainCamera` function to select which one should be used to draw the screen.
 
