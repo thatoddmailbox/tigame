@@ -43,6 +43,8 @@ By default, all `.cpp` files in your game's source folder will be included in th
 ## Concepts
 The main idea is that you set up a `tigame::Game` object and then call its `Run` function, which takes over control flow. The game object has an active `tigame::Scene`, which is what is displayed to the user.
 
+Within a `Scene` is one or more `tigame::Object`s. One (or more) of these `Object`s must be a `Camera`, and you can use the `Scene`'s `SetMainCamera` function to select which one should be used to draw the screen.
+
 ## Repo structure
 * `cmake` - This folder contains files used for the CMake build system.
 * `demo` - This folder contains the source code of a small demo.
