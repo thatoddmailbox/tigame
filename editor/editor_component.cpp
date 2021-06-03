@@ -32,24 +32,24 @@ void EditorComponent::Update(tigame::Game * game, double dt)
 	if (ImGui::Button("+ Add"))
 	{
 		// TODO: clean up the object?
-		tigame::Object * thing = new tigame::Object("Box");
-		thing->SetPosition(0, 0, 0);
+		tigame::Object thing = tigame::Object("Box");
+		thing.SetPosition(0, 0, 0);
 		tigame::Mesh * box = tigame::MeshFactory::Box(tigame::Material::Basic(), 1, 1, 1);
-		thing->mesh = box;
-		current_scene->AddObject(thing);
+		thing.mesh = box;
+		current_scene->AddObject(std::make_shared<tigame::Object>(thing));
 	}
 
-	for (tigame::Object * object : current_scene->GetObjects())
+	for (const std::shared_ptr<tigame::Object>& object : current_scene->GetObjects())
 	{
 		ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
-		if (object == selected_object_)
+		if (object.get() == selected_object_)
 		{
 			flags |= ImGuiTreeNodeFlags_Selected;
 		}
 		ImGui::TreeNodeEx(object->GetName().c_str(), flags);
 		if (ImGui::IsItemClicked())
 		{
-			selected_object_ = object;
+			selected_object_ = object.get();
 		}
 	}
 
