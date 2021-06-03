@@ -25,7 +25,7 @@ void EditorComponent::Update(tigame::Game * game, double dt)
 		ImGui::EndMainMenuBar();
 	}
 
-	ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_NoResize);
+	ImGui::Begin("Scene", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 	ImGui::SetWindowSize(ImVec2(150, 0));
 	ImGui::SetWindowPos(ImVec2(0, 18));
 
