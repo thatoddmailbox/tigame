@@ -45,6 +45,8 @@ The main idea is that you set up a `tigame::Game` object and then call its `Run(
 
 Within a `Scene` is one or more `tigame::Object`s. One (or more) of these `Object`s must be a `Camera`, and you can use the `Scene`'s `SetMainCamera(Camera *)` function to select which one should be used to draw the screen.
 
+Each `Object` can have a `tigame::Mesh`, which holds the geometry data of something to draw.
+
 ## Repo structure
 * `cmake` - This folder contains files used for the CMake build system.
 * `demo` - This folder contains the source code of a small demo.
