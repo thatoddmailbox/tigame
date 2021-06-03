@@ -65,19 +65,19 @@ int main(int argc, char * argv[])
 	box->SetTexture(&texture);
 	thing.mesh = box;
 	thing.AddComponent(std::make_shared<SampleBoxComponent>());
-	scene.AddObject(&thing);
+	scene.AddObject(std::make_shared<tigame::Object>(thing));
 
 	tigame::Object floor = tigame::Object();
 	tigame::Mesh * floor_box = tigame::MeshFactory::Box(tigame::Material::Basic(), 5, 0.25, 5);
 	floor.mesh = floor_box;
-	scene.AddObject(&floor);
+	scene.AddObject(std::make_shared<tigame::Object>(floor));
 
 	tigame::Object teapot = tigame::Object();
 	teapot.SetPosition(-5, 0, 0);
 	tigame::Mesh * teapot_mesh = tigame::MeshFactory::OBJ(tigame::Material::Basic(), "teapot.obj");
 	teapot_mesh->SetTexture(&texture);
 	teapot.mesh = teapot_mesh;
-	scene.AddObject(&teapot);
+	scene.AddObject(std::make_shared<tigame::Object>(teapot));
 
 	game.Run();
 
