@@ -1,6 +1,7 @@
 #ifndef TIGAME_SCENE_HPP
 #define TIGAME_SCENE_HPP
 
+#include <memory>
 #include <vector>
 
 #include <glm/glm.hpp>
@@ -18,8 +19,8 @@ namespace tigame
 	public:
 		Scene();
 
-		void AddObject(Object * object);
-		const std::vector<Object *>& GetObjects();
+		void AddObject(const std::shared_ptr<Object>& object);
+		const std::vector<std::shared_ptr<Object>>& GetObjects();
 
 		void SetMainCamera(Camera * camera);
 
@@ -30,7 +31,7 @@ namespace tigame
 		glm::vec3 clear_color;
 
 	private:
-		std::vector<Object *> objects_;
+		std::vector<std::shared_ptr<Object>> objects_;
 		Camera * main_camera_;
 	};
 }

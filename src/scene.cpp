@@ -13,12 +13,12 @@ namespace tigame
 		clear_color = glm::vec3(0.404f, 0.577f, 0.926f);
 	}
 
-	void Scene::AddObject(Object * object)
+	void Scene::AddObject(const std::shared_ptr<Object>& object)
 	{
 		objects_.push_back(object);	
 	}
 
-	const std::vector<Object *>& Scene::GetObjects()
+	const std::vector<std::shared_ptr<Object>>& Scene::GetObjects()
 	{
 		return objects_;
 	}
@@ -30,7 +30,7 @@ namespace tigame
 
 	void Scene::Update(Game * game, double dt)
 	{
-		for (Object * object : objects_)
+		for (const std::shared_ptr<Object>& object : objects_)
 		{
 			object->Update(game, this, dt);
 		}
@@ -38,7 +38,7 @@ namespace tigame
 
 	void Scene::Draw()
 	{
-		for (Object * object : objects_)
+		for (const std::shared_ptr<Object>& object : objects_)
 		{
 			object->Draw(main_camera_->GetProjection(), main_camera_->GetView(), &main_camera_->GetPosition(), &light);
 		}
