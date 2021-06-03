@@ -55,8 +55,9 @@ int main(int argc, char * argv[])
 	camera.SetPosition(8, 4, 8);
 	camera.LookAt(glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 	camera.AddComponent(std::make_shared<tigame::OrbitControlsComponent>());
-	scene.AddObject(&camera);
-	scene.SetMainCamera(&camera);
+	std::shared_ptr<tigame::Camera> camera_ptr = std::make_shared<tigame::Camera>(camera);
+	scene.AddObject(camera_ptr);
+	scene.SetMainCamera(camera_ptr.get());
 
 	tigame::Object thing = tigame::Object();
 	thing.SetPosition(0, 2, 0);
