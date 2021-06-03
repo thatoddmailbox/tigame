@@ -55,7 +55,7 @@ void EditorComponent::Update(tigame::Game * game, double dt)
 
 	ImGui::End();
 
-	ImGui::Begin("Properties", nullptr, ImGuiWindowFlags_NoResize);
+	ImGui::Begin("Properties", nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
 	ImGui::SetWindowSize(ImVec2(250, 0));
 	ImGui::SetWindowPos(ImVec2(io.DisplaySize.x - 250, 18));
 	if (selected_object_ != nullptr)
