@@ -23,7 +23,7 @@ Please note that these instructions have been only tested on Linux. They should 
 ## Project setup
 **Note that everything is still a work in progress and this setup might break at some point in the future!**
 
-To create a new project using tigame, first make a new folder. Then create a CMakeLists.txt file with the following contents:
+To create a new tugane project, first make a new folder. Then create a CMakeLists.txt file with the following contents:
 
 ```cmake
 cmake_minimum_required(VERSION 3.7)
