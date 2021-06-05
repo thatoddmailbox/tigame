@@ -40,6 +40,27 @@ int main(int argc, char * argv[])
 	thing2.mesh = box2;
 	scene.AddObject(std::make_shared<tigame::Object>(thing2));
 
+	tigame::Object arrow = tigame::Object();
+	arrow.SetPosition(-2, 0, -1);
+	tigame::Mesh * arrow_mesh = tigame::MeshFactory::OBJ(tigame::Material::Basic(), "arrow.obj");
+	arrow_mesh->SetTexture(&blank);
+	arrow.mesh = arrow_mesh;
+	scene.AddObject(std::make_shared<tigame::Object>(arrow));
+
+	tigame::Object arrow2 = tigame::Object();
+	arrow2.SetPosition(-2, 0, -1);
+	tigame::Mesh * arrow2_mesh = tigame::MeshFactory::OBJ(tigame::Material::Basic(), "arrow.obj");
+	arrow2_mesh->SetTexture(&blank);
+	arrow2.mesh = arrow2_mesh;
+	scene.AddObject(std::make_shared<tigame::Object>(arrow2));
+
+	tigame::Object arrow3 = tigame::Object();
+	arrow3.SetPosition(-2, 0, -1);
+	tigame::Mesh * arrow3_mesh = tigame::MeshFactory::OBJ(tigame::Material::Basic(), "arrow.obj");
+	arrow3_mesh->SetTexture(&blank);
+	arrow3.mesh = arrow3_mesh;
+	scene.AddObject(std::make_shared<tigame::Object>(arrow3));
+
 	std::shared_ptr<EditorComponent> editor_component = std::make_shared<EditorComponent>();
 	game.AddComponent(editor_component);
 
