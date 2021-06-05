@@ -42,6 +42,7 @@ int main(int argc, char * argv[])
 
 	tigame::Object arrow = tigame::Object();
 	arrow.SetPosition(-2, 0, -1);
+	arrow.SetRotation(90, 0, 0);
 	tigame::Mesh * arrow_mesh = tigame::MeshFactory::OBJ(tigame::Material::Basic(), "arrow.obj");
 	arrow_mesh->SetTexture(&blank);
 	arrow.mesh = arrow_mesh;
@@ -56,6 +57,7 @@ int main(int argc, char * argv[])
 
 	tigame::Object arrow3 = tigame::Object();
 	arrow3.SetPosition(-2, 0, -1);
+	arrow3.SetRotation(0, 0, -90);
 	tigame::Mesh * arrow3_mesh = tigame::MeshFactory::OBJ(tigame::Material::Basic(), "arrow.obj");
 	arrow3_mesh->SetTexture(&blank);
 	arrow3.mesh = arrow3_mesh;
