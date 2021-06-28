@@ -15,6 +15,12 @@ namespace tigame
 
 	}
 
+	const char * OrbitControlsComponent::GetName()
+	{
+		static const char * name = "Orbit Controls";
+		return name;
+	}
+
 	void OrbitControlsComponent::Update(Game * game, Scene * scene, Object * object, double dt)
 	{
 		double horizontal = game->GetInputManager().GetAxis(InputAxis::Horizontal);
