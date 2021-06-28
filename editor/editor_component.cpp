@@ -105,6 +105,14 @@ void EditorComponent::Update(tigame::Game * game, double dt)
 		{
 			selected_object_->SetScale(scale_float[0], scale_float[1], scale_float[2]);
 		}
+
+		ImGui::Separator();
+		ImGui::Text("Components");
+
+		for (const std::shared_ptr<tigame::Component>& component : selected_object_->GetComponents())
+		{
+			ImGui::Text(component->GetName());
+		}
 	}
 	else
 	{
