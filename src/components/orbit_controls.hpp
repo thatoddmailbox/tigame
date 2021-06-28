@@ -9,6 +9,7 @@ namespace tigame
 	{
 	public:
 		void Start();
+		const char * GetName();
 		void Update(Game *, Scene *, Object *, double dt);
 
 	private:
