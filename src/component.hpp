@@ -11,6 +11,7 @@ namespace tigame
 	{
 	public:
 		virtual void Start() = 0;
+		virtual const char * GetName() = 0;
 		virtual void Update(Game *, Scene *, Object *, double dt) = 0;
 	};
 
