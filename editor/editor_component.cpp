@@ -119,6 +119,4 @@ void EditorComponent::Update(tigame::Game * game, double dt)
 		ImGui::Text("No object selected.");
 	}
 	ImGui::End();
-
-	// ImGui::ShowDemoWindow();
 }
