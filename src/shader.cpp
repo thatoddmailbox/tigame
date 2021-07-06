@@ -19,7 +19,7 @@ namespace tigame
 		{
 			char infoLog[512];
 			glGetShaderInfoLog(vertex_shader, 512, NULL, infoLog);
-			std::cout << "vertex shader failed\n" << infoLog << std::endl;
+			std::cout << "vertex shader compile failed\n" << infoLog << std::endl;
 			return;
 		}
 
@@ -33,7 +33,7 @@ namespace tigame
 
 			char infoLog[512];
 			glGetShaderInfoLog(fragment_shader, 512, NULL, infoLog);
-			std::cout << "fragment shader failed\n" << infoLog << std::endl;
+			std::cout << "fragment shader compile failed\n" << infoLog << std::endl;
 			return;
 		}
 
