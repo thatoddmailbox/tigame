@@ -18,6 +18,11 @@ class SampleCameraComponent : public tigame::Component
 
 	}
 
+	const char * GetName()
+	{
+		return "Sample Camera Component";
+	}
+
 	void Update(tigame::Game * game, tigame::Scene * scene, tigame::Object * object, double dt)
 	{
 		object->SetPosition(8 * cos(time), 4, 8 * sin(time));
@@ -33,6 +38,11 @@ class SampleBoxComponent : public tigame::Component
 	void Start()
 	{
 
+	}
+
+	const char * GetName()
+	{
+		return "Sample Box Component";
 	}
 
 	void Update(tigame::Game * game, tigame::Scene * scene, tigame::Object * object, double dt)
